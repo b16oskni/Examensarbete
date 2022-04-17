@@ -1,11 +1,19 @@
+const btnCI = document.getElementById("btnCi");
+const btnSF = document.getElementById("btnSf");
+window.addEventListener("load", setupEvents);
 
-document.getElementById('btnCi').addEventListener('click', redirect('ci'));
-document.getElementById('btnSf').addEventListener('click', redirect('sf'));
-
-function redirect(framework) {
-    if(framework === 'ci'){
+function redirect(event) {
+    const btn = event.target;
+    if(btn.value == "ci"){
         location.assign("codeigniterApp/public/");
-    }else if(framework === 'sf') {
+    }else if(btn.value == "sf") {
         location.assign("symfonyApp/public/");
-    }
+    } 
+    
+    console.log(`${btn.value} btn clicked`);
+}
+
+function setupEvents() {
+    btnCI.addEventListener("click", redirect);
+    btnSF.addEventListener("click", redirect);
 }
