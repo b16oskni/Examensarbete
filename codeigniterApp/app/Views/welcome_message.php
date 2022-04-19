@@ -28,6 +28,11 @@
             font-size: 3rem;
             font-weight: bold;
         }
+        .champ-icon{
+            width: 30px;
+            height: 30px;
+            margin-left: 5px;
+        }
     </style>
 </head>
 <body id="body">
@@ -64,7 +69,14 @@
                 </div>
             </div>
         </div>
-        <div class="row align-items-start mt-5">
+        <div class="row">
+        <!--MATCH START-->
+        <div class="col text-center mt-5">
+                Game Time <br>
+                39:02
+            </div>
+        </div>
+        <div class="row align-items-start">
             <div class="col bg-primary">
                 <div class="row" style="height:100px;">
                     <div class="col-2 offset-md-10 text-end">
@@ -84,12 +96,81 @@
                         Team 2 <br>
                         L
                     </div>
-                    <div class="col-2 offset-md-3">
-                        Ban:
+                    <div class="col offset-md-1">
+                        <div class="mt-1">
+                            Picks:
+                            <img class="champ-icon" alt="Zyra" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Zyra.png"> 
+                            <img class="champ-icon" alt="Yuumi" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Yuumi.png"> 
+                            <img class="champ-icon" alt="Miss Fortune" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/MissFortune.png"> 
+                            <img class="champ-icon" alt="Nami" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Nami.png"> 
+                            <img class="champ-icon" alt="Lulu" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Lulu.png">
+                        </div>
+                        <div class="mt-1">
+                            Bans:
+                            <img class="champ-icon" alt="Zyra" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Zyra.png"> 
+                            <img class="champ-icon" alt="Yuumi" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Yuumi.png"> 
+                            <img class="champ-icon" alt="Miss Fortune" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/MissFortune.png"> 
+                            <img class="champ-icon" alt="Nami" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Nami.png"> 
+                            <img class="champ-icon" alt="Lulu" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Lulu.png">
+                        </div>
+                        <div>
+                            (Gold) 34.2k    (Kills) 21  (Towers) 8  (Dragons) 5 (Barons) 2
+                        </div>
                     </div>
                 </div>
             </div>  
         </div>
+        <!--MATCH END-->
+        <!--MATCH START-->
+        <div class="col text-center mt-1">
+            Game Time <br>
+            39:02
+        </div>
+        <div class="row align-items-start">
+            <div class="col bg-primary">
+                <div class="row" style="height:100px;">
+                    <div class="col-2 offset-md-10 text-end">
+                        Team 1 <br>
+                        W
+                    </div>
+                    <div class="row">
+                        <div class="col-2 offset-md-10 text-end">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col bg-danger">
+                <div class="row" style="height:100px;">
+                    <div class="col-2 text-start">
+                        Team 2 <br>
+                        L
+                    </div>
+                    <div class="col offset-md-1">
+                        <div class="mt-1">
+                            Picks:
+                            <img class="champ-icon" alt="Zyra" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Zyra.png"> 
+                            <img class="champ-icon" alt="Yuumi" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Yuumi.png"> 
+                            <img class="champ-icon" alt="Miss Fortune" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/MissFortune.png"> 
+                            <img class="champ-icon" alt="Nami" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Nami.png"> 
+                            <img class="champ-icon" alt="Lulu" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Lulu.png">
+                        </div>
+                        <div class="mt-1">
+                            Bans:
+                            <img class="champ-icon" alt="Zyra" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Zyra.png"> 
+                            <img class="champ-icon" alt="Yuumi" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Yuumi.png"> 
+                            <img class="champ-icon" alt="Miss Fortune" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/MissFortune.png"> 
+                            <img class="champ-icon" alt="Nami" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Nami.png"> 
+                            <img class="champ-icon" alt="Lulu" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Lulu.png">
+                        </div>
+                        <div>
+                            (Gold) 34.2k    (Kills) 21  (Towers) 8  (Dragons) 5 (Barons) 2
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </div>
+        <!--MATCH END-->
     </div>
     <!--Footer-->
     <div class="container">
