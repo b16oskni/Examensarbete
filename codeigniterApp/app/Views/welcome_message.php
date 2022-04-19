@@ -64,7 +64,34 @@
                 </div>
             </div>
         </div>
+        <div class="row align-items-start mt-5">
+            <div class="col bg-primary">
+                <div class="row" style="height:100px;">
+                    <div class="col-2 offset-md-10 text-end">
+                        Team 1 <br>
+                        W
+                    </div>
+                    <div class="row">
+                        <div class="col-2 offset-md-10 text-end">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col bg-danger">
+                <div class="row" style="height:100px;">
+                    <div class="col-2 text-start">
+                        Team 2 <br>
+                        L
+                    </div>
+                    <div class="col-2 offset-md-3">
+                        Ban:
+                    </div>
+                </div>
+            </div>  
+        </div>
     </div>
+    <!--Footer-->
     <div class="container">
         <footer class="py-3 my-4">
             <ul class="nav justify-content-center border-bottom pb-3 mb-3">
