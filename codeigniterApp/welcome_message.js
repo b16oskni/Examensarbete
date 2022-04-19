@@ -1,4 +1,5 @@
-const btn = document.getElementById("homebtn");
+const btnHeader = document.getElementById("homebtn");
+const btnFooter = document.getElementById("homebtn2");
 window.addEventListener("load", setup);
 
 function redirect(event){
@@ -7,5 +8,6 @@ function redirect(event){
 }
 
 function setup(){
-    btn.addEventListener("click", redirect);
+    btnHeader.addEventListener("click", redirect);
+    btnFooter.addEventListener("click", redirect);
 }

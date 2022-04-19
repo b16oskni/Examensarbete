@@ -6,6 +6,7 @@
     <title>Home</title>
     <!-- Bootstrap -->
     <link href="<?php echo base_url('bootstrap/css/bootstrap.min.css');?>" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <script src="<?php echo base_url('bootstrap/js/bootstrap.bundle.min.js');?>"></script>
     <style>
         html, body {
@@ -52,13 +53,22 @@
     <!-- Page Content -->
     <div class="container">
         <div class="row">
-            
+            <div class="col mt-5">
+                <div class="input-group mx-auto">
+                    <div class="form-outline ms-auto">
+                        <input type="search" id="form1" class="form-control" placeholder="Search"/>
+                    </div>
+                    <button type="button" class="btn btn-dark me-auto">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
     <div class="container">
         <footer class="py-3 my-4">
             <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+            <li class="nav-item" id="homebtn2"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
             <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
             <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
             <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
