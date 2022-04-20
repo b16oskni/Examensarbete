@@ -190,6 +190,10 @@
         </div>
         <!--MATCH END-->
     </div>
+    <!--Test dataand info display-->
+    <div class="position-static bg-secondary" style="width:350px;height:250px;">
+
+    </div>
     <!--Footer-->
     <div class="container">
         <footer class="py-3 my-4">
