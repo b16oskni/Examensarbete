@@ -15,10 +15,13 @@ class Pages extends BaseController {
             throw new \CodeIgniter\Exceptions\PageNotFoundException($page);
         }
 
-        //$data['title'] = ucfirst($page);    //capitalizes first letter
+        if($this->request->getMethod() === 'post'){
+            //add get from model using slug
+        }
 
         echo view('templates/header');
         echo view('pages/' . $page);
+        echo view('templates/team_search');
         echo view('templates/footer');
         
     }

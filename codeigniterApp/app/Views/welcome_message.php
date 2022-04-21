@@ -58,15 +58,17 @@
     <!-- Page Content -->
     <div class="container">
         <div class="row mb-5">
-            <div class="col mt-5">
+            <div class="col mt-5"> 
+                <form method="post" action="<?php echo base_url('public/home') ?>">
                 <div class="input-group mx-auto">
                     <div class="form-outline ms-auto">
-                        <input type="search" id="form1" class="form-control" placeholder="Search"/>
+                        <input type="input" class="form-control" placeholder="Search" name="gsearch" id="form1"/>
                     </div>
-                    <button type="button" class="btn btn-dark me-auto">
+                    <button type="submit" class="btn btn-dark me-auto" id="searchBtn">
                         <i class="bi bi-search"></i>
                     </button>
                 </div>
+                </form>
             </div>
         </div>
         <!--MATCH START-->
