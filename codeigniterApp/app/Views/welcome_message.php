@@ -76,7 +76,7 @@
             <div class="col bg-primary">
                 <div class="row" style="height:100px;">
                     <div class="col-10">
-                        <div class="mt-1">
+                        <div class="mt-1 fw-bold">
                             Picks:
                             <img class="champ-icon" alt="Zyra" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Zyra.png"> 
                             <img class="champ-icon" alt="Yuumi" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Yuumi.png"> 
@@ -84,7 +84,7 @@
                             <img class="champ-icon" alt="Nami" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Nami.png"> 
                             <img class="champ-icon" alt="Lulu" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Lulu.png">
                         </div>
-                        <div class="mt-1">
+                        <div class="mt-1 fw-bold">
                             Bans:
                             <img class="champ-icon" alt="Zyra" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Zyra.png"> 
                             <img class="champ-icon" alt="Yuumi" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Yuumi.png"> 
@@ -92,11 +92,11 @@
                             <img class="champ-icon" alt="Nami" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Nami.png"> 
                             <img class="champ-icon" alt="Lulu" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Lulu.png">
                         </div>
-                        <div>
+                        <div class="fw-bold">
                             (Gold) 34.2k    (Kills) 21  (Towers) 8  (Dragons) 5 (Barons) 2
                         </div>
                     </div>
-                    <div class="col-2 text-end">
+                    <div class="col-2 text-end fw-bold">
                         Team 1 <br>
                         W
                     </div>
@@ -110,12 +110,12 @@
             </div>
             <div class="col bg-danger">
                 <div class="row" style="height:100px;">
-                    <div class="col-2 text-start">
+                    <div class="col-2 text-start fw-bold">
                         Team 2 <br>
                         L
                     </div>
                     <div class="col offset-md-1">
-                        <div class="mt-1">
+                        <div class="mt-1 fw-bold">
                             Picks:
                             <img class="champ-icon" alt="Zyra" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Zyra.png"> 
                             <img class="champ-icon" alt="Yuumi" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Yuumi.png"> 
@@ -123,7 +123,7 @@
                             <img class="champ-icon" alt="Nami" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Nami.png"> 
                             <img class="champ-icon" alt="Lulu" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Lulu.png">
                         </div>
-                        <div class="mt-1">
+                        <div class="mt-1 fw-bold">
                             Bans:
                             <img class="champ-icon" alt="Zyra" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Zyra.png"> 
                             <img class="champ-icon" alt="Yuumi" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Yuumi.png"> 
@@ -131,7 +131,7 @@
                             <img class="champ-icon" alt="Nami" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Nami.png"> 
                             <img class="champ-icon" alt="Lulu" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Lulu.png">
                         </div>
-                        <div>
+                        <div class="fw-bold">
                             (Gold) 34.2k    (Kills) 21  (Towers) 8  (Dragons) 5 (Barons) 2
                         </div>
                     </div>
@@ -162,12 +162,12 @@
             </div>
             <div class="col bg-danger">
                 <div class="row" style="height:100px;">
-                    <div class="col-2 text-start">
+                    <div class="col-2 text-start fw-bold">
                         Team 2 <br>
                         L
                     </div>
                     <div class="col offset-md-1">
-                        <div class="mt-1">
+                        <div class="mt-1 fw-bold">
                             Picks:
                             <img class="champ-icon" alt="Zyra" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Zyra.png"> 
                             <img class="champ-icon" alt="Yuumi" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Yuumi.png"> 
@@ -175,7 +175,7 @@
                             <img class="champ-icon" alt="Nami" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Nami.png"> 
                             <img class="champ-icon" alt="Lulu" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Lulu.png">
                         </div>
-                        <div class="mt-1">
+                        <div class="mt-1 fw-bold">
                             Bans:
                             <img class="champ-icon" alt="Zyra" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Zyra.png"> 
                             <img class="champ-icon" alt="Yuumi" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Yuumi.png"> 
@@ -183,7 +183,7 @@
                             <img class="champ-icon" alt="Nami" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Nami.png"> 
                             <img class="champ-icon" alt="Lulu" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Lulu.png">
                         </div>
-                        <div>
+                        <div class="fw-bold">
                             (Gold) 34.2k    (Kills) 21  (Towers) 8  (Dragons) 5 (Barons) 2
                         </div>
                     </div>
@@ -193,8 +193,10 @@
         <!--MATCH END-->
     </div>
     <!--Test dataand info display-->
-    <div class="position-static bg-secondary" style="width:350px;height:250px;">
-
+    <div class="bg-dark position-fixed bottom-0 end-0 border border-dark" style="width:550px;height:350px;">
+        <div>
+            
+        </div>
     </div>
     <!--Footer-->
     <div class="container">
