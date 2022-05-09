@@ -299,7 +299,7 @@ CREATE TABLE symfony.game (
 CREATE TABLE codeigniter.team (
     matchid varchar(60) NOT NULL,
     teamname varchar(60),
-    teamid varchar(80), NOT NULL,
+    teamid varchar(80) NOT NULL,
     ban1 varchar(50),
     ban2 varchar(50),
     ban3 varchar(50),
@@ -334,14 +334,14 @@ CREATE TABLE codeigniter.team (
     firsttothreetowers varchar(3),
     inhibitors varchar(3),
     totalgold varchar(15),
-    CONSTRAINT PK_team PRIMARY KEY (teamid, matchid),
-    CONSTRAINT FK_team FOREIGN KEY (matchid)
-    REFERENCES codeigniter.match(matchid);
+    CONSTRAINT PK_Team PRIMARY KEY (matchid, teamid),
+    FOREIGN KEY (matchid)
+    REFERENCES codeigniter.game(matchid)
 );
 CREATE TABLE symfony.team (
     matchid varchar(60) NOT NULL,
     teamname varchar(60),
-    teamid varchar(80), NOT NULL,
+    teamid varchar(80) NOT NULL,
     ban1 varchar(50),
     ban2 varchar(50),
     ban3 varchar(50),
@@ -376,14 +376,14 @@ CREATE TABLE symfony.team (
     firsttothreetowers varchar(3),
     inhibitors varchar(3),
     totalgold varchar(15),
-    CONSTRAINT PK_team PRIMARY KEY (teamid, matchid),
+    CONSTRAINT PK_team PRIMARY KEY (matchid, teamid),
     CONSTRAINT FK_team FOREIGN KEY (matchid)
-    REFERENCES symfony.match(matchid);
+    REFERENCES symfony.game(matchid)
 );
 
 CREATE TABLE codeigniter.player (
     matchid varchar(60) NOT NULL,
-    teamid varchar(80), NOT NULL,
+    teamid varchar(80) NOT NULL,
     playerid varchar(80) NOT NULL,
     playername varchar(50),
     position varchar(10),
@@ -407,13 +407,13 @@ CREATE TABLE codeigniter.player (
     totalgold varchar(15),
     totalcs varchar(15),
     cspm varchar(15),
-    CONSTRAINT PK_player PRIMARY KEY (playerid, teamid, matchid),
-    CONSTRAINT FK_player FOREIGN KEY (teamid, matchid)
-    REFERENCES codeigniter.team(teamid, matchid);
+    CONSTRAINT PK_player PRIMARY KEY (matchid, playerid, teamid),
+    CONSTRAINT FK_player FOREIGN KEY (matchid, teamid)
+    REFERENCES codeigniter.team(matchid, teamid)
 );
 CREATE TABLE symfony.player (
     matchid varchar(60) NOT NULL,
-    teamid varchar(80), NOT NULL,
+    teamid varchar(80) NOT NULL,
     playerid varchar(80) NOT NULL,
     playername varchar(50),
     position varchar(10),
@@ -437,7 +437,160 @@ CREATE TABLE symfony.player (
     totalgold varchar(15),
     totalcs varchar(15),
     cspm varchar(15),
-    CONSTRAINT PK_player PRIMARY KEY (playerid, teamid, matchid),
-    CONSTRAINT FK_player FOREIGN KEY (teamid, matchid)
-    REFERENCES symfony.team(teamid, matchid);
+    CONSTRAINT PK_player PRIMARY KEY (matchid, playerid, teamid),
+    CONSTRAINT FK_player FOREIGN KEY (matchid, teamid)
+    REFERENCES codeigniter.team(matchid, teamid)
 );
+
+--Insert data from temp to organised tables
+INSERT INTO codeigniter.game (matchid, blueteam, league, split, playoffs, date, game, patch, gamelength)
+SELECT gameid, teamname, league, split, playoffs, date, game, patch, gamelength FROM codeigniter.temp
+WHERE position="team" and side="blue";
+
+--Clean data from bad values
+DELETE FROM temp WHERE league="UPL";
+DELETE FROM temp WHERE teamname="Unknown team" OR teamname="unknown team";
+DELETE FROM temp WHERE gameid="ESPORTSTMNT02/1890835";
+DELETE FROM temp WHERE gameid="ESPORTSTMNT02/1890848";
+DELETE FROM temp WHERE gameid="ESPORTSTMNT02_1932895";
+DELETE FROM temp WHERE gameid="ESPORTSTMNT02_1932914";
+
+UPDATE temp
+SET playerid=CONCAT(teamname," ",position)
+WHERE playername="unknown player";
+
+UPDATE codeigniter.game, codeigniter.temp
+SET game.redteam = temp.teamname
+WHERE game.matchid = temp.gameid AND temp.side="red";
+
+INSERT INTO codeigniter.team (matchid, 
+    teamname, 
+    teamid, 
+    ban1, 
+    ban2, 
+    ban3, 
+    ban4, 
+    ban5, 
+    result, 
+    teamkills, 
+    doublekills, 
+    triplekills, 
+    quadrakills, 
+    pentakills, 
+    firstblood, 
+    teamkpm, 
+    ckpm, 
+    firstdragon, 
+    dragons, 
+    infernals, 
+    mountains, 
+    clouds, 
+    oceans, 
+    chemtechs, 
+    hextechs, 
+    elders, 
+    firstherald, 
+    heralds, 
+    firstbaron, 
+    barons, 
+    firsttower, 
+    towers, 
+    firstmidtower, 
+    firsttothreetowers, 
+    inhibitors, 
+    totalgold)
+SELECT 
+    gameid, 
+    teamname, 
+    teamid, 
+    ban1, 
+    ban2, 
+    ban3, 
+    ban4, 
+    ban5, 
+    result, 
+    teamkills, 
+    doublekills, 
+    triplekills, 
+    quadrakills, 
+    pentakills, 
+    firstblood, 
+    teamkpm, 
+    ckpm, 
+    firstdragon, 
+    dragons, 
+    infernals, 
+    mountains, 
+    clouds, 
+    oceans, 
+    chemtechs, 
+    hextechs, 
+    elders, 
+    firstherald, 
+    heralds, 
+    firstbaron, 
+    barons, 
+    firsttower, 
+    towers, 
+    firstmidtower, 
+    firsttothreetowers, 
+    inhibitors, 
+    totalgold 
+FROM codeigniter.temp
+WHERE position="team";
+
+INSERT INTO codeigniter.player (
+    matchid,
+    teamid,
+    playerid,
+    playername,
+    position,
+    champion,
+    kills,
+    deaths,
+    assists,
+    doublekills,
+    triplekills,
+    quadrakills,
+    pentakills,
+    damagetochampions,
+    dpm,
+    damageshare,
+    damagetakenperminute,
+    wardsplaced,
+    wpm,
+    wardskilled,
+    controlwardsbought,
+    visionscore,
+    totalgold,
+    totalcs,
+    cspm)
+SELECT
+    gameid,
+    teamid,
+    playerid,
+    playername,
+    position,
+    champion,
+    kills,
+    deaths,
+    assists,
+    doublekills,
+    triplekills,
+    quadrakills,
+    pentakills,
+    damagetochampions,
+    dpm,
+    damageshare,
+    damagetakenperminute,
+    wardsplaced,
+    wpm,
+    wardskilled,
+    controlwardsbought,
+    visionscore,
+    totalgold,
+    totalcs,
+    cspm
+FROM codeigniter.temp
+WHERE position!="team";
+
