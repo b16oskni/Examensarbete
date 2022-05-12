@@ -11,6 +11,5 @@
         </footer>
     </div>
     <!--Custom JS-->
-    <script src="<?php echo base_url('welcome_message.js');?>"></script>
 </body>
 </html>

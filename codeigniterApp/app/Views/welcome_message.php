@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Home</title>
+    <title>CodeIgniter</title>
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
@@ -59,7 +59,7 @@
     <div class="container">
         <div class="row mb-5">
             <div class="col mt-5"> 
-                <form method="post" action="<?php echo base_url('public/home') ?>">
+                <form method="get" action="<?php echo base_url('public/home') ?>">
                 <div class="input-group mx-auto">
                     <div class="form-outline ms-auto">
                         <input type="input" class="form-control" placeholder="Search" name="gsearch" id="form1"/>

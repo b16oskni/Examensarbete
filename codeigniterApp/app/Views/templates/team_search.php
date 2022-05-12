@@ -1,3 +1,5 @@
+<?php if (! empty($games) && is_array($games)): ?>
+    <?php foreach ($games as $game): ?>
         <!--MATCH START-->
         <div class="row align-items-start border border-dark">
             <div class="col bg-primary">
@@ -5,11 +7,7 @@
                     <div class="col-10">
                         <div class="mt-1">
                             Picks:
-                            <img class="champ-icon" alt="Zyra" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Zyra.png"> 
-                            <img class="champ-icon" alt="Yuumi" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Yuumi.png"> 
-                            <img class="champ-icon" alt="Miss Fortune" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/MissFortune.png"> 
-                            <img class="champ-icon" alt="Nami" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Nami.png"> 
-                            <img class="champ-icon" alt="Lulu" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Lulu.png">
+                            <h3><?= esc($game['blueteam']) ?></h3>
                         </div>
                         <div class="mt-1">
                             Bans:
@@ -66,3 +64,7 @@
             </div>  
         </div>
         <!--MATCH END-->
+    <?php endforeach ?>
+<?php else: ?>
+    <h3>No games found</h3>
+<?php endif ?>
