@@ -14,16 +14,25 @@ use CodeIgniter\Model;
             //FIX TO ONLY SHOW 5 latest games or w/e
             /* if($name === FALSE) {
                 $query = $this->db->get('game');
-                return $query->result_array();
+                return $query;
             } */
             
-            //$this->select('*');
-            //$this->where('redteam =', 'g2 esports');
-            //$this->orWhere('blueteam =', 'g2 esporst');
+            $this->select('*');
             //$this->join('team', 'team.matchid = game.matchid');
-           // $this->join('player', 'player.matchid = team.matchid AND player.teamid = team.teamid', 'left');
-           // $query = $this->get();
+            //$this->join('player', 'player.matchid = team.matchid AND player.teamid = team.teamid', 'left');
+            $this->where('redteam =', $name);
+            $this->orWhere('blueteam =', $name);
+            $query = $this->get();
 
-            return $this->findAll();
+            return $query;
+        }
+
+        public function get_teams($name = false) {
+
+            $this->select('*');
+            $this->where('teamname =', $name);
+            $query = $this->get();
+
+            return $query;
         }
     }

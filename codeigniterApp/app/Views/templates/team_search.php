@@ -6,8 +6,11 @@
                 <div class="row" style="height:100px;">
                     <div class="col-10">
                         <div class="mt-1">
+                            <p><?= esc($game['blueteam']) ?></p>
                             Picks:
-                            <h3><?= esc($game['blueteam']) ?></h3>
+                            <?php foreach ($teams as $team): ?>
+                            <img class="champ-icon" alt="<?= esc($team['ban1'])?>" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/<?= esc($team['ban1'])?>.png">
+                            <?php endforeach ?>
                         </div>
                         <div class="mt-1">
                             Bans:
