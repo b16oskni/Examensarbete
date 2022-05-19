@@ -141,7 +141,7 @@ IGNORE 1 LINES;
 
 
 --Create tables for organised data
-/* TABLES WITH ALL GAME DATA IN ONE TABLE
+--TABLES WITH ALL GAME DATA IN ONE TABLE
 CREATE TABLE codeigniter.game (
     matchid varchar(60) NOT NULL,
     blueteam varchar(60),
@@ -153,6 +153,7 @@ CREATE TABLE codeigniter.game (
     game varchar(5),
     patch varchar(5),
     gamelength varchar(20),
+    result varchar(10),
     pick1 varchar(50),
     pick2 varchar(50),
     pick3 varchar(50),
@@ -173,12 +174,18 @@ CREATE TABLE codeigniter.game (
     ban8 varchar(50),
     ban9 varchar(50),
     ban10 varchar(50),
-    dragons varchar(3),
-    heralds varchar(3),
-    barons varchar(3),
-    towers varchar(3),
-    inhibitors varchar(3),
-    totalgold varchar(15),
+    bluedragons varchar(3),
+    blueheralds varchar(3),
+    bluebarons varchar(3),
+    bluetowers varchar(3),
+    blueinhibitors varchar(3),
+    bluetotalgold varchar(15),
+    reddragons varchar(3),
+    redheralds varchar(3),
+    redbarons varchar(3),
+    redtowers varchar(3),
+    redinhibitors varchar(3),
+    redtotalgold varchar(15),
     PRIMARY KEY (matchid)
 );
 CREATE TABLE symfony.game (
@@ -192,6 +199,7 @@ CREATE TABLE symfony.game (
     game varchar(5),
     patch varchar(5),
     gamelength varchar(20),
+    result varchar(10),
     pick1 varchar(50),
     pick2 varchar(50),
     pick3 varchar(50),
@@ -212,20 +220,24 @@ CREATE TABLE symfony.game (
     ban8 varchar(50),
     ban9 varchar(50),
     ban10 varchar(50),
-    dragons varchar(3),
-    heralds varchar(3),
-    barons varchar(3),
-    towers varchar(3),
-    inhibitors varchar(3),
-    totalgold varchar(15),
+    bluedragons varchar(3),
+    blueheralds varchar(3),
+    bluebarons varchar(3),
+    bluetowers varchar(3),
+    blueinhibitors varchar(3),
+    bluetotalgold varchar(15),
+    reddragons varchar(3),
+    redheralds varchar(3),
+    redbarons varchar(3),
+    redtowers varchar(3),
+    redinhibitors varchar(3),
+    redtotalgold varchar(15),
     PRIMARY KEY (matchid)
 );
-*/
 
-CREATE TABLE codeigniter.game (
+
+/* CREATE TABLE codeigniter.game (
     matchid varchar(60) NOT NULL,
-    blueteam varchar(60),
-    redteam varchar(60),
     league varchar(10),
     split varchar(25),
     playoffs varchar(4),
@@ -394,7 +406,7 @@ CREATE TABLE symfony.player (
     CONSTRAINT PK_player PRIMARY KEY (matchid, playerid, teamid),
     CONSTRAINT FK_player FOREIGN KEY (matchid, teamid)
     REFERENCES codeigniter.team(matchid, teamid)
-);
+); */
 
 --Clean data from bad values
 DELETE FROM temp.temp WHERE league="UPL";
@@ -409,13 +421,140 @@ SET playerid=CONCAT(teamname," ",position)
 WHERE playername="unknown player";
 
 --Insert data from temp to organised tables
-INSERT INTO codeigniter.game (matchid, blueteam, league, split, playoffs, date, game, patch, gamelength)
-SELECT gameid, teamname, league, split, playoffs, date, game, patch, gamelength FROM temp.temp
+INSERT INTO codeigniter.game (
+    matchid,
+    blueteam,  
+    league, 
+    split, 
+    playoffs, 
+    date, 
+    game, 
+    patch, 
+    gamelength,
+    ban1,
+    ban2,
+    ban3,
+    ban4,
+    ban5,
+    bluedragons,
+    blueheralds,
+    bluebarons,
+    bluetowers,
+    blueinhibitors,
+    bluetotalgold)
+SELECT 
+    gameid, 
+    teamname, 
+    league, 
+    split, 
+    playoffs, 
+    date, 
+    game, 
+    patch, 
+    gamelength,
+    ban1,
+    ban2,
+    ban3,
+    ban4,
+    ban5,
+    dragons,
+    heralds,
+    barons,
+    towers,
+    inhibitors,
+    totalgold
+FROM temp.temp
 WHERE position="team" and side="blue";
 
+INSERT INTO codeigniter.game (
+    matchid,  
+    league, 
+    split, 
+    playoffs, 
+    date, 
+    game, 
+    patch, 
+    gamelength
+    )
+SELECT 
+    gameid,  
+    league, 
+    split, 
+    playoffs, 
+    date, 
+    game, 
+    patch, 
+    gamelength
+FROM temp.temp
+WHERE position="team"
+ON DUPLICATE KEY UPDATE game.matchid = temp.gameid;
+
+/* UPDATE codeigniter.game, temp.temp
+SET 
+    game.redteam = temp.teamname,
+WHERE temp.gameid = game.matchid AND temp.position = "team" AND temp.side = "red"; */
+
+--UPDATE BIG TABLE 
 UPDATE codeigniter.game, temp.temp
-SET game.redteam = temp.teamname
+SET 
+    game.redteam = temp.teamname,
+    game.ban6 = temp.ban1,
+    game.ban7 = temp.ban2,
+    game.ban8 = temp.ban3,
+    game.ban9 = temp.ban4,
+    game.ban10 = temp.ban5,
+    game.reddragons = dragons,
+    game.redheralds = heralds,
+    game.redbarons = barons,
+    game.redtowers = towers,
+    game.redinhibitors = inhibitors,
+    game.redtotalgold = totalgold
 WHERE temp.gameid = game.matchid AND temp.position = "team" AND temp.side = "red";
+
+UPDATE codeigniter.game, temp.temp
+SET game.pick2 = temp.champion
+WHERE temp.gameid = game.matchid AND temp.participantid = 1;
+
+UPDATE codeigniter.game, temp.temp
+SET game.pick2 = temp.champion
+WHERE temp.gameid = game.matchid AND temp.participantid = 2;
+
+UPDATE codeigniter.game, temp.temp
+SET game.pick3 = temp.champion
+WHERE temp.gameid = game.matchid AND temp.participantid = 3;
+
+UPDATE codeigniter.game, temp.temp
+SET game.pick4 = temp.champion
+WHERE temp.gameid = game.matchid AND temp.participantid = 4;
+
+UPDATE codeigniter.game, temp.temp
+SET game.pick5 = temp.champion
+WHERE temp.gameid = game.matchid AND temp.participantid = 5;
+
+UPDATE codeigniter.game, temp.temp
+SET game.pick6 = temp.champion
+WHERE temp.gameid = game.matchid AND temp.participantid = 6;
+
+UPDATE codeigniter.game, temp.temp
+SET game.pick7 = temp.champion
+WHERE temp.gameid = game.matchid AND temp.participantid = 7;
+
+UPDATE codeigniter.game, temp.temp
+SET game.pick8 = temp.champion
+WHERE temp.gameid = game.matchid AND temp.participantid = 8;
+
+UPDATE codeigniter.game, temp.temp
+SET game.pick9 = temp.champion
+WHERE temp.gameid = game.matchid AND temp.participantid = 9;
+
+UPDATE codeigniter.game, temp.temp
+SET game.pick10 = temp.champion
+WHERE temp.gameid = game.matchid AND temp.participantid = 10;
+
+UPDATE codeigniter.game, temp.temp 
+SET game.result = IF(temp.result = 1, "blue", "red")
+WHERE temp.gameid = game.matchid AND temp.position="team" AND temp.side="blue";
+
 
 INSERT INTO codeigniter.team (matchid, 
     teamname, 

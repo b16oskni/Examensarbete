@@ -18,8 +18,6 @@ use CodeIgniter\Model;
             } */
             
             $this->select('*');
-            //$this->join('team', 'team.matchid = game.matchid');
-            //$this->join('player', 'player.matchid = team.matchid AND player.teamid = team.teamid', 'left');
             $this->where('redteam =', $name);
             $this->orWhere('blueteam =', $name);
             $query = $this->get();
@@ -27,12 +25,4 @@ use CodeIgniter\Model;
             return $query;
         }
 
-        public function get_teams($name = false) {
-
-            $this->select('*');
-            $this->where('teamname =', $name);
-            $query = $this->get();
-
-            return $query;
-        }
     }

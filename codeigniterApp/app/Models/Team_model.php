@@ -11,6 +11,7 @@ use CodeIgniter\Model;
 
         public function get_teams($name = false) {
 
+            
             $this->select('*');
             $this->where('teamname =', $name);
             $query = $this->get();

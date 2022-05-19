@@ -11,17 +11,15 @@ class Pages extends BaseController {
 
     public function view() {
         
-        $model = model(Game_model::class);
-        $model2 = model(Team_model::class);
+        $game_model = model(Game_model::class);
+        $team_model = model(Team_model::class);
+        $player_model = model(Player_model::class);
 
         $name = $this->request->getGet('gsearch');
 
         if ($this->request->getMethod() === 'get') {
             
-            $data = [
-                'games' => $model->get_games($name)->getResultArray(),
-                'teams' => $model2->get_teams($name)->getResultArray(),
-            ];
+            $data = ['games' => $game_model->get_games($name)->getResultArray()];
 
             echo view('templates/header');
             echo view('templates/team_search', $data);
