@@ -1,7 +1,7 @@
 --Create databases--
-CREATE IF NOT EXISTS codeigniter;
-CREATE IF NOT EXISTS symfony;
-CREATE IF NOT EXISTS temp;
+CREATE DATABASE [IF NOT EXISTS] codeigniter;
+CREATE DATABASE [IF NOT EXISTS] symfony;
+CREATE DATABASE [IF NOT EXISTS] temp;
 
 --Create raw data tables--
 CREATE TABLE temp.temp(
@@ -131,6 +131,7 @@ CREATE TABLE temp.temp(
 );
 
 --Import raw data into table table--
+--HAVE TO UNZIP CSV FILE IN ORDER TO WORK--
 LOAD DATA INFILE '..\\..\\htdocs\\Examensarbete\\database\\2021_LoL_esports_match_data_from_OraclesElixir_Modified.csv'
 INTO TABLE temp.temp
 FIELDS TERMINATED BY ','
@@ -140,6 +141,87 @@ IGNORE 1 LINES;
 
 
 --Create tables for organised data
+/* TABLES WITH ALL GAME DATA IN ONE TABLE
+CREATE TABLE codeigniter.game (
+    matchid varchar(60) NOT NULL,
+    blueteam varchar(60),
+    redteam varchar(60),
+    league varchar(10),
+    split varchar(25),
+    playoffs varchar(4),
+    date varchar(20),
+    game varchar(5),
+    patch varchar(5),
+    gamelength varchar(20),
+    pick1 varchar(50),
+    pick2 varchar(50),
+    pick3 varchar(50),
+    pick4 varchar(50),
+    pick5 varchar(50),
+    pick6 varchar(50),
+    pick7 varchar(50),
+    pick8 varchar(50),
+    pick9 varchar(50),
+    pick10 varchar(50),
+    ban1 varchar(50),
+    ban2 varchar(50),
+    ban3 varchar(50),
+    ban4 varchar(50),
+    ban5 varchar(50),
+    ban6 varchar(50),
+    ban7 varchar(50),
+    ban8 varchar(50),
+    ban9 varchar(50),
+    ban10 varchar(50),
+    dragons varchar(3),
+    heralds varchar(3),
+    barons varchar(3),
+    towers varchar(3),
+    inhibitors varchar(3),
+    totalgold varchar(15),
+    PRIMARY KEY (matchid)
+);
+CREATE TABLE symfony.game (
+    matchid varchar(60) NOT NULL,
+    blueteam varchar(60),
+    redteam varchar(60),
+    league varchar(10),
+    split varchar(25),
+    playoffs varchar(4),
+    date varchar(20),
+    game varchar(5),
+    patch varchar(5),
+    gamelength varchar(20),
+    pick1 varchar(50),
+    pick2 varchar(50),
+    pick3 varchar(50),
+    pick4 varchar(50),
+    pick5 varchar(50),
+    pick6 varchar(50),
+    pick7 varchar(50),
+    pick8 varchar(50),
+    pick9 varchar(50),
+    pick10 varchar(50),
+    ban1 varchar(50),
+    ban2 varchar(50),
+    ban3 varchar(50),
+    ban4 varchar(50),
+    ban5 varchar(50),
+    ban6 varchar(50),
+    ban7 varchar(50),
+    ban8 varchar(50),
+    ban9 varchar(50),
+    ban10 varchar(50),
+    dragons varchar(3),
+    heralds varchar(3),
+    barons varchar(3),
+    towers varchar(3),
+    inhibitors varchar(3),
+    totalgold varchar(15),
+    PRIMARY KEY (matchid)
+);
+*/
+
 CREATE TABLE codeigniter.game (
     matchid varchar(60) NOT NULL,
     blueteam varchar(60),
@@ -153,6 +235,7 @@ CREATE TABLE codeigniter.game (
     gamelength varchar(20),
     PRIMARY KEY (matchid)
 );
+
 CREATE TABLE symfony.game (
     matchid varchar(60) NOT NULL,
     blueteam varchar(60),
@@ -176,11 +259,6 @@ CREATE TABLE codeigniter.team (
     ban3 varchar(50),
     ban4 varchar(50),
     ban5 varchar(50),
-    pick1 varchar(50),
-    pick2 varchar(50),
-    pick3 varchar(50),
-    pick4 varchar(50),
-    pick5 varchar(50),
     result varchar(5),
     teamkills varchar(4),
     teamdeaths varchar(4),
@@ -223,11 +301,6 @@ CREATE TABLE symfony.team (
     ban3 varchar(50),
     ban4 varchar(50),
     ban5 varchar(50),
-    pick1 varchar(50),
-    pick2 varchar(50),
-    pick3 varchar(50),
-    pick4 varchar(50),
-    pick5 varchar(50),
     result varchar(5),
     teamkills varchar(4),
     teamdeaths varchar(4),
@@ -331,18 +404,18 @@ DELETE FROM temp.temp WHERE gameid="ESPORTSTMNT02/1890848";
 DELETE FROM temp.temp WHERE gameid="ESPORTSTMNT02_1932895";
 DELETE FROM temp.temp WHERE gameid="ESPORTSTMNT02_1932914";
 
-UPDATE tmep.temp
+UPDATE temp.temp
 SET playerid=CONCAT(teamname," ",position)
 WHERE playername="unknown player";
-
-/* UPDATE codeigniter.game, codeigniter.temp
-SET game.redteam = temp.teamname
-WHERE game.matchid = temp.gameid AND temp.side="red"; */
 
 --Insert data from temp to organised tables
 INSERT INTO codeigniter.game (matchid, blueteam, league, split, playoffs, date, game, patch, gamelength)
 SELECT gameid, teamname, league, split, playoffs, date, game, patch, gamelength FROM temp.temp
 WHERE position="team" and side="blue";
+
+UPDATE codeigniter.game, temp.temp
+SET game.redteam = temp.teamname
+WHERE temp.gameid = game.matchid AND temp.position = "team" AND temp.side = "red";
 
 INSERT INTO codeigniter.team (matchid, 
     teamname, 
@@ -478,6 +551,10 @@ WHERE position!="team";
 INSERT INTO symfony.game (matchid, blueteam, league, split, playoffs, date, game, patch, gamelength)
 SELECT gameid, teamname, league, split, playoffs, date, game, patch, gamelength FROM temp.temp
 WHERE position="team" and side="blue";
+
+UPDATE symfony.game, temp.temp
+SET game.redteam = temp.teamname
+WHERE temp.gameid = game.matchid AND temp.position = "team" AND temp.side = "red";
 
 INSERT INTO symfony.team (matchid, 
     teamname, 
