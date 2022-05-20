@@ -55,3 +55,22 @@
             </div>
         </div>
     </header>
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col mt-5"> 
+            <form method="get" action="<?php echo base_url('public/home') ?>">
+                <div class="input-group mx-auto">
+                    <div class="form-outline ms-auto">
+                        <input type="input" class="form-control" placeholder="Search" name="gsearch" id="form1"/>
+                        <input type="radio" class="ms-5" name="searchOpt" id="checkTeam" value="Team"/>
+                        <label for="checkTeam">Team</label>
+                        <input type="radio" class="ms-4" name="searchOpt" id="checkPlayer" value="Player"/>
+                        <label for="checkPlayer">Player</label>
+                    </div>
+                    <button type="submit" class="btn btn-dark me-auto" id="searchBtn" style="height:50%;">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </div>
+                </form>
+            </div>
+        </div>

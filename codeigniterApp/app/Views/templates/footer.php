@@ -1,3 +1,4 @@
+    </div>
     <!--Footer-->
     <div class="container">
         <footer class="py-3 my-4">

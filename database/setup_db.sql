@@ -489,11 +489,6 @@ FROM temp.temp
 WHERE position="team"
 ON DUPLICATE KEY UPDATE game.matchid = temp.gameid;
 
-/* UPDATE codeigniter.game, temp.temp
-SET 
-    game.redteam = temp.teamname,
-WHERE temp.gameid = game.matchid AND temp.position = "team" AND temp.side = "red"; */
-
 --UPDATE BIG TABLE 
 UPDATE codeigniter.game, temp.temp
 SET 

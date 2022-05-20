@@ -4,7 +4,7 @@
         <div class="row align-items-start border border-dark">
             <div class="col bg-primary">
                 <div class="row" style="height:100px;">
-                    <div class="col-2"></div>
+                    <div class="col-1"></div>
                     <div class="col-8">
                         <div class="mt-1">
                             Picks:
@@ -26,7 +26,7 @@
                             (Gold) <?= esc($game['bluetotalgold']) ?>    (Kills) 21  (Towers) <?= esc($game['bluetowers']) ?>  (Dragons) <?= esc($game['bluedragons']) ?> (Barons) <?= esc($game['bluebarons']) ?>
                         </div>
                     </div>
-                    <div class="col-2 text-end">
+                    <div class="col-2 text-end font-weight-bold">
                     <?= esc($game['blueteam']) ?> <br>
                     <?php if (esc($game['result']) == "red"): ?>
                         L

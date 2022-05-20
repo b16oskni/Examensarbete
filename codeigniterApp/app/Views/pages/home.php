@@ -22,7 +22,7 @@
     <div class="container">
         <div class="row mb-5">
             <div class="col mt-5"> 
-                <form method="post" action="<?php echo base_url('public/home') ?>">
+                <form method="get" action="<?php echo base_url('public/home') ?>">
                 <div class="input-group mx-auto">
                     <div class="form-outline ms-auto">
                         <input type="input" class="form-control" placeholder="Search" name="gsearch" id="form1"/>
