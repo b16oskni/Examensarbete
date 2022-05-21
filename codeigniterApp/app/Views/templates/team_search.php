@@ -28,7 +28,7 @@
                     </div>
                     <div class="col-2 text-end font-weight-bold">
                     <?= esc($game['blueteam']) ?> <br>
-                    <?php if (esc($game['result']) == "red"): ?>
+                    <?php if (esc($game['gameresult']) == "red"): ?>
                         L
                     <?php else: ?>
                         W
@@ -47,7 +47,7 @@
                     <div class="col-1"></div>
                     <div class="col-2 text-start">
                     <?= esc($game['redteam']) ?> <br>
-                    <?php if (esc($game['result']) == "red"): ?>
+                    <?php if (esc($game['gameresult']) == "red"): ?>
                         W
                     <?php else: ?>
                         L

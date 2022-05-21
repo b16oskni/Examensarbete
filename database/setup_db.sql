@@ -186,6 +186,7 @@ CREATE TABLE codeigniter.game (
     redtowers varchar(3),
     redinhibitors varchar(3),
     redtotalgold varchar(15),
+    gameresult varchar(10),
     PRIMARY KEY (matchid)
 );
 CREATE TABLE symfony.game (
@@ -235,6 +236,25 @@ CREATE TABLE symfony.game (
     PRIMARY KEY (matchid)
 );
 
+CREATE TABLE codeigniter.player (
+    id int NOT NULL AUTO_INCREMENT,
+    playerID varchar(80),
+    playername varchar(80),
+    position varchar(12),
+    champion varchar(40),
+    kills varchar(10),
+    deaths varchar(10),
+    assists varchar(10),
+    damagetochampions varchar(14),
+    dpm varchar(14),
+    damageshare varchar(14),
+    wardsplaced varchar(14),
+    wpm varchar(14),
+    totalgold varchar(14),
+    totalcs varchar(14),
+    cspm varchar(14),
+    PRIMARY KEY (id)
+);
 
 /* CREATE TABLE codeigniter.game (
     matchid varchar(60) NOT NULL,
@@ -628,8 +648,6 @@ FROM temp.temp
 WHERE position="team";
 
 INSERT INTO codeigniter.player (
-    matchid,
-    teamid,
     playerid,
     playername,
     position,
@@ -637,25 +655,15 @@ INSERT INTO codeigniter.player (
     kills,
     deaths,
     assists,
-    doublekills,
-    triplekills,
-    quadrakills,
-    pentakills,
     damagetochampions,
     dpm,
     damageshare,
-    damagetakenperminute,
     wardsplaced,
     wpm,
-    wardskilled,
-    controlwardsbought,
-    visionscore,
     totalgold,
     totalcs,
     cspm)
 SELECT
-    gameid,
-    teamid,
     playerid,
     playername,
     position,
@@ -663,19 +671,11 @@ SELECT
     kills,
     deaths,
     assists,
-    doublekills,
-    triplekills,
-    quadrakills,
-    pentakills,
     damagetochampions,
     dpm,
     damageshare,
-    damagetakenperminute,
     wardsplaced,
     wpm,
-    wardskilled,
-    controlwardsbought,
-    visionscore,
     totalgold,
     totalcs,
     cspm
