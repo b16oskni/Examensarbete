@@ -29,7 +29,7 @@ class Pages extends BaseController {
                 $data = ['players' => $player_model->get_players($name)->getResultArray()];
 
                 echo view('templates/header');
-                echo view('templates/team_search', $data);
+                echo view('templates/player_search', $data);
                 echo view('templates/footer');
             }
 

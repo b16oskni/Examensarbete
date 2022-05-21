@@ -44,6 +44,7 @@
             </div>
             <div class="col bg-danger">
                 <div class="row" style="height:100px;">
+                    <div class="col-1"></div>
                     <div class="col-2 text-start">
                     <?= esc($game['redteam']) ?> <br>
                     <?php if (esc($game['result']) == "red"): ?>
@@ -52,7 +53,7 @@
                         L
                     <?php endif ?> 
                     </div>
-                    <div class="col offset-md-1">
+                    <div class="col ">
                         <div class="mt-1">
                             Picks:
                             <img class="champ-icon" alt="<?= esc($game['pick6']) ?>" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/<?= str_replace(" ", "", esc($game['pick6'])); ?>.png"> 

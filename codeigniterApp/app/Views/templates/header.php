@@ -33,6 +33,12 @@
             height: 30px;
             margin-left: 5px;
         }
+        .champ-icon-player{
+            width: 50px;
+            height: 50px;
+            margin-left: 5px;
+            padding: 0px;
+        }
     </style>
 </head>
 <body id="body">
