@@ -11,11 +11,12 @@ use CodeIgniter\Model;
 
         public function get_games($name = false) {
 
-            //FIX TO ONLY SHOW 5 latest games or w/e
-            /* if($name === FALSE) {
-                $query = $this->db->get('game');
+            //show only 10 results if no search term
+            if($name === FALSE || $name === "") {
+                $this->select('*');
+                $query = $this->get(10);
                 return $query;
-            } */
+            }
             
             $this->select('*');
             $this->where('redteam =', $name);
