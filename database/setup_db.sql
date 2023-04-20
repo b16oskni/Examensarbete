@@ -186,7 +186,6 @@ CREATE TABLE codeigniter.game (
     redtowers varchar(3),
     redinhibitors varchar(3),
     redtotalgold varchar(15),
-    gameresult varchar(10),
     PRIMARY KEY (matchid)
 );
 CREATE TABLE symfony.game (

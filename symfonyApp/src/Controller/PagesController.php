@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
-
+use App\Service\FormService;
+use App\Form\Type\SearchType;
+use App\Entity\Game;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -10,34 +12,37 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class PagesController extends AbstractController {
 
+    /* public function searchForm(Request $Request): Response {
+
+        $form = $this->createForm(SearchType::class);
+
+        return $this->renderForm('search.html.twig', [
+            'form' => $form,
+        ]);
+    } */
+
     #[Route('/search', name: 'search')]
-    public function new(Request $request): Response {
-        
-        $name = $request->request->get('gsearch');
-        $option = $request->request->get('searchOpt');
-        
-        $games = getData();
-        return $this->render('search_team.html.twig', ['game' => $games]);
+    public function search(FormService $formService, Request $request): Response {
+        $games = $formService->searchTeam($request);
+
+        return $this->render('search_team.html.twig', ['games' => $games]);
     }
     
     #[Route('/', name: 'home')]
-    public function team(): Response {
+    public function home(): Response {
+        $form = $this->createForm(SearchType::class);
 
-        //if get is used, get search value and render result
-
-        //else render start of search page
-
-        return $this->render('search.html.twig');
+        return $this->renderForm('search.html.twig');
     }
 
-    public function getData(ManagerRegistry $doctrine, string $name): Response {
+   /*  public function getData(ManagerRegistry $doctrine, string $name): Response {
         
         $repository = $doctrine->getRepository(Product::class);
         $query = $repository->findBy(
             ['name' => $name]
         );
         return Response($query);
-    }
+    } */
 }
 
 ?>

@@ -66,65 +66,106 @@
     <div class="container">
         <div class="row mb-5">
             <div class="col mt-5"> 
-            <form method="get" action="">
-                <div class="input-group mx-auto">
-                    <div class="form-outline ms-auto">
-                        <input type="input" class="form-control" placeholder="Search" name="gsearch" id="form1"/>
-                        <input type="radio" class="ms-5" name="searchOpt" id="checkTeam" value="Team"/>
-                        <label for="checkTeam">Team</label>
-                        <input type="radio" class="ms-4" name="searchOpt" id="checkPlayer" value="Player"/>
-                        <label for="checkPlayer">Player</label>
+                <form method="get" action="{{ path('search') }}">
+                    <div class="input-group mx-auto">
+                        <div class="form-outline ms-auto">
+                            <input type="input" class="form-control" placeholder="Search" name="gsearch" id="form1"/>
+                            <input type="radio" class="ms-5" name="searchOpt" id="checkTeam" value="Team"/>
+                            <label for="checkTeam">Team</label>
+                            <input type="radio" class="ms-4" name="searchOpt" id="checkPlayer" value="Player"/>
+                            <label for="checkPlayer">Player</label>
+                        </div>
+                        <button type="submit" class="btn btn-dark me-auto" id="searchBtn" style="height:50%;">
+                            <i class="bi bi-search"></i>
+                        </button>
                     </div>
-                    <button type="submit" class="btn btn-dark me-auto" id="searchBtn" style="height:50%;">
-                        <i class="bi bi-search"></i>
-                    </button>
-                </div>
                 </form>
             </div>
         </div>
-        <div class="row align-items-start border border-dark">
-            <div class="col bg-primary">
-                <div class="row" style="height:100px;">
-                    <div class="col-1"></div>
-                    <div class="col-8">
-                        <div class="mt-1">
-                            Picks:
+        {% for game in games %}
+            <!--MATCH START-->
+            <div class="row align-items-start border border-dark">
+                <div class="col bg-primary">
+                    <div class="row" style="height:100px;">
+                        <div class="col-1"></div>
+                        <div class="col-8">
+                            <div class="mt-1">
+                                Picks:
+                                <img class="champ-icon" alt="{{ game.pick1 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick1|replace({' ': ''})}}.png"> 
+                                <img class="champ-icon" alt="{{ game.pick2 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick2|replace({' ': ''})}}.png"> 
+                                <img class="champ-icon" alt="{{ game.pick3 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick3|replace({' ': ''})}}.png"> 
+                                <img class="champ-icon" alt="{{ game.pick4 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick4|replace({' ': ''})}}.png"> 
+                                <img class="champ-icon" alt="{{ game.pick5 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick5|replace({' ': ''})}}.png">
+                            </div>
+                            <div class="mt-1">
+                                Bans:
+                                <img class="champ-icon" alt="{{game.ban1}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban1|replace({' ': ''})}}.png"> 
+                                <img class="champ-icon" alt="{{game.ban2}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban2|replace({' ': ''})}}.png"> 
+                                <img class="champ-icon" alt="{{game.ban3}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban3|replace({' ': ''})}}.png"> 
+                                <img class="champ-icon" alt="{{game.ban4}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban4|replace({' ': ''})}}.png"> 
+                                <img class="champ-icon" alt="{{game.ban5}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban5|replace({' ': ''})}}.png">
+                            </div>
+                            <div>
+                                <span>
+                                    <img class="champ-icon" src="../../Images/Scoreboard_-_Blue_Baron.png">
+                                    {{game.getBluetotalgold}}    (Kills) 21  (Towers) {{ game.getBluetowers }}  (Dragons) {{game.getBluedragons }} (Barons) {{ game.getBluebarons }}
+                                </span>
+                            </div>
                         </div>
-                        <div class="mt-1">
-                            Bans:
+                        <div class="col-2 text-end font-weight-bold">
+                        {{game.blueteam}} <br>
+                        {% if game.gameresult == "red" %}
+                            L
+                        {% else %}
+                            W
+                        {% endif %}    
                         </div>
-                        <div>
-                        </div>
-                    </div>
-                    <div class="col-2 text-end font-weight-bold">    
                     </div>
                 </div>
+                <div class="col-1 bg-dark" style="height:100px;">
+                    <div class="col text-center mt-1 text-white">
+                        Game Time <br>
+                        {% set time = game.gamelength|split('', 2) %}
+                        {{time[0] ~ ':' ~ time[1]}}
+                    </div>
+                </div>
+                <div class="col bg-danger">
+                    <div class="row" style="height:100px;">
+                        <div class="col-1"></div>
+                        <div class="col-2 text-start">
+                        {{game.redteam}} <br>
+                        {% if game.gameresult == "red" %}
+                            W
+                        {% else %}
+                            L
+                        {% endif %}
+                        </div>
+                        <div class="col ">
+                            <div class="mt-1">
+                                Picks:
+                                <img class="champ-icon" alt="{{ game.pick6 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick6|replace({' ': ''})}}.png"> 
+                                <img class="champ-icon" alt="{{ game.pick7 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick7|replace({' ': ''})}}.png"> 
+                                <img class="champ-icon" alt="{{ game.pick8 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick8|replace({' ': ''})}}.png"> 
+                                <img class="champ-icon" alt="{{ game.pick9 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick9|replace({' ': ''})}}.png"> 
+                                <img class="champ-icon" alt="{{ game.pick10 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick10|replace({' ': ''})}}.png">
+                            </div>
+                            <div class="mt-1">
+                                Bans:
+                                <img class="champ-icon" alt="{{game.ban6}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban6|replace({' ': ''})}}.png"> 
+                                <img class="champ-icon" alt="{{game.ban7}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban7|replace({' ': ''})}}.png"> 
+                                <img class="champ-icon" alt="{{game.ban8}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban8|replace({' ': ''})}}.png"> 
+                                <img class="champ-icon" alt="{{game.ban9}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban9|replace({' ': ''})}}.png"> 
+                                <img class="champ-icon" alt="{{game.ban10}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban10|replace({' ': ''})}}.png">
+                            </div>
+                            <div>
+                                (Gold) {{game.getRedtotalgold}}    (Kills) 21  (Towers) {{ game.getRedtowers }}  (Dragons) {{game.getReddragons }} (Barons) {{ game.getRedbarons }}
+                            </div>
+                        </div>
+                    </div>
+                </div>  
             </div>
-            <div class="col-1 bg-dark" style="height:100px;">
-                <div class="col text-center mt-1 text-white">
-                    Game Time <br>
-                </div>
-            </div>
-            <div class="col bg-danger">
-                <div class="row" style="height:100px;">
-                    <div class="col-1"></div>
-                    <div class="col-2 text-start">
-                     
-                    </div>
-                    <div class="col ">
-                        <div class="mt-1">
-                            Picks:
-                        </div>
-                        <div class="mt-1">
-                            Bans:
-                        </div>
-                        <div>
-                        </div>
-                    </div>
-                </div>
-            </div>  
-        </div>
-        <!--MATCH END-->
+            <!--MATCH END-->
+        {% endfor %}
     </div>
     <!--Footer-->
     <div class="container">
