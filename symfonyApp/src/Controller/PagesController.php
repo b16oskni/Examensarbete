@@ -23,9 +23,9 @@ class PagesController extends AbstractController {
 
     #[Route('/search', name: 'search')]
     public function search(FormService $formService, Request $request): Response {
-        $games = $formService->searchTeam($request);
+        //$games = $formService->searchTeam($request);
 
-        return $this->render('search_team.html.twig', ['games' => $games]);
+        return $this->render('search_team.html.twig', ['games' => $formService->searchTeam($request)]);
     }
     
     #[Route('/', name: 'home')]

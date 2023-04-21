@@ -33,13 +33,11 @@
         .champ-icon{
             width: 30px;
             height: 30px;
-            margin-left: 5px;
+            margin-right: 5px;
         }
-        .champ-icon-player{
-            width: 50px;
-            height: 50px;
-            margin-left: 5px;
-            padding: 0px;
+        .role-icon{
+            width: 30px;
+            height: 30px;
         }
     </style>
 </head>
@@ -66,13 +64,13 @@
     <div class="container">
         <div class="row mb-5">
             <div class="col mt-5"> 
-                <form method="get" action="{{ path('search') }}">
+                <form method="GET" action="{{ path('search') }}">
                     <div class="input-group mx-auto">
                         <div class="form-outline ms-auto">
-                            <input type="input" class="form-control" placeholder="Search" name="gsearch" id="form1"/>
-                            <input type="radio" class="ms-5" name="searchOpt" id="checkTeam" value="Team"/>
+                            <input type="input" class="form-control" placeholder="Search" name="name" id="form1"/>
+                            <input type="radio" class="ms-5" name="option" id="checkTeam" value="Team"/>
                             <label for="checkTeam">Team</label>
-                            <input type="radio" class="ms-4" name="searchOpt" id="checkPlayer" value="Player"/>
+                            <input type="radio" class="ms-4" name="option" id="checkPlayer" value="Player"/>
                             <label for="checkPlayer">Player</label>
                         </div>
                         <button type="submit" class="btn btn-dark me-auto" id="searchBtn" style="height:50%;">
@@ -90,29 +88,49 @@
                         <div class="col-1"></div>
                         <div class="col-8">
                             <div class="mt-1">
-                                Picks:
-                                <img class="champ-icon" alt="{{ game.pick1 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick1|replace({' ': ''})}}.png"> 
-                                <img class="champ-icon" alt="{{ game.pick2 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick2|replace({' ': ''})}}.png"> 
-                                <img class="champ-icon" alt="{{ game.pick3 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick3|replace({' ': ''})}}.png"> 
-                                <img class="champ-icon" alt="{{ game.pick4 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick4|replace({' ': ''})}}.png"> 
-                                <img class="champ-icon" alt="{{ game.pick5 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick5|replace({' ': ''})}}.png">
+                                <img class="role-icon" alt="top" src="../../Images/Top_icon.png">
+                                <img class="champ-icon" alt="{{ game.pick1 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick1}}.png"> 
+                                <img class="role-icon" alt="top" src="../../Images/Jungle_icon.png">
+                                <img class="champ-icon" alt="{{ game.pick2 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick2}}.png"> 
+                                <img class="role-icon" alt="top" src="../../Images/Middle_icon.png">
+                                <img class="champ-icon" alt="{{ game.pick3 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick3}}.png"> 
+                                <img class="role-icon" alt="top" src="../../Images/Bottom_icon.png">
+                                <img class="champ-icon" alt="{{ game.pick4 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick4}}.png"> 
+                                <img class="role-icon" alt="top" src="../../Images/Support_icon.png">
+                                <img class="champ-icon" alt="{{ game.pick5 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick5}}.png">
                             </div>
-                            <div class="mt-1">
+                            <div class="mt-1 ms-5 fw-bold">
                                 Bans:
-                                <img class="champ-icon" alt="{{game.ban1}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban1|replace({' ': ''})}}.png"> 
-                                <img class="champ-icon" alt="{{game.ban2}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban2|replace({' ': ''})}}.png"> 
-                                <img class="champ-icon" alt="{{game.ban3}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban3|replace({' ': ''})}}.png"> 
-                                <img class="champ-icon" alt="{{game.ban4}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban4|replace({' ': ''})}}.png"> 
-                                <img class="champ-icon" alt="{{game.ban5}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban5|replace({' ': ''})}}.png">
+                                <img class="champ-icon" alt="{{game.ban1}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban1}}.png"> 
+                                <img class="champ-icon" alt="{{game.ban2}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban2}}.png"> 
+                                <img class="champ-icon" alt="{{game.ban3}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban3}}.png"> 
+                                <img class="champ-icon" alt="{{game.ban4}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban4}}.png"> 
+                                <img class="champ-icon" alt="{{game.ban5}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban5}}.png">
                             </div>
-                            <div>
-                                <span>
-                                    <img class="champ-icon" src="../../Images/Scoreboard_-_Blue_Baron.png">
-                                    {{game.getBluetotalgold}}    (Kills) 21  (Towers) {{ game.getBluetowers }}  (Dragons) {{game.getBluedragons }} (Barons) {{ game.getBluebarons }}
+                            <div class="fw-bold">
+                                <span class="me-3">
+                                    <img style="width:25px; height:20px;" src="../../Images/Gold.png">
+                                    {{game.getBluetotalgold}}
+                                </span>
+                                <span class="me-3">
+                                    <img class="role-icon" src="../../Images/Gold.png">
+                                    22
+                                </span>
+                                <span class="me-3">
+                                    <img class="role-icon" src="../../Images/Blue_Turret_icon.png">
+                                    {{ game.getBluetowers }}
+                                </span>
+                                <span class="me-3">
+                                    <img style="width:25px; height:25px;" src="../../Images/Dragon_icon_(Blue).png">
+                                    {{game.getBluedragons }}
+                                </span>
+                                <span class="me-3">
+                                    <img style="width:25px; height:25px;" src="../../Images/Baron_Nashor_icon_(Blue).png">
+                                    {{ game.getBluebarons }}
                                 </span>
                             </div>
                         </div>
-                        <div class="col-2 text-end font-weight-bold">
+                        <div class="col-2 text-end fw-bold">
                         {{game.blueteam}} <br>
                         {% if game.gameresult == "red" %}
                             L
@@ -132,7 +150,7 @@
                 <div class="col bg-danger">
                     <div class="row" style="height:100px;">
                         <div class="col-1"></div>
-                        <div class="col-2 text-start">
+                        <div class="col-2 text-start fw-bold">
                         {{game.redteam}} <br>
                         {% if game.gameresult == "red" %}
                             W
@@ -142,23 +160,46 @@
                         </div>
                         <div class="col ">
                             <div class="mt-1">
-                                Picks:
-                                <img class="champ-icon" alt="{{ game.pick6 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick6|replace({' ': ''})}}.png"> 
-                                <img class="champ-icon" alt="{{ game.pick7 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick7|replace({' ': ''})}}.png"> 
-                                <img class="champ-icon" alt="{{ game.pick8 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick8|replace({' ': ''})}}.png"> 
-                                <img class="champ-icon" alt="{{ game.pick9 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick9|replace({' ': ''})}}.png"> 
-                                <img class="champ-icon" alt="{{ game.pick10 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick10|replace({' ': ''})}}.png">
+                                <img class="role-icon" alt="top" src="../../Images/Top_icon.png">
+                                <img class="champ-icon" alt="{{ game.pick6 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick6}}.png"> 
+                                <img class="role-icon" alt="top" src="../../Images/Jungle_icon.png">
+                                <img class="champ-icon" alt="{{ game.pick7 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick7}}.png"> 
+                                <img class="role-icon" alt="top" src="../../Images/Middle_icon.png">
+                                <img class="champ-icon" alt="{{ game.pick8 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick8}}.png"> 
+                                <img class="role-icon" alt="top" src="../../Images/Bottom_icon.png">
+                                <img class="champ-icon" alt="{{ game.pick9 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick9}}.png"> 
+                                <img class="role-icon" alt="top" src="../../Images/Support_icon.png">
+                                <img class="champ-icon" alt="{{ game.pick10 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick10}}.png">
                             </div>
-                            <div class="mt-1">
+                            <div class="mt-1 ms-4 fw-bold">
                                 Bans:
-                                <img class="champ-icon" alt="{{game.ban6}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban6|replace({' ': ''})}}.png"> 
-                                <img class="champ-icon" alt="{{game.ban7}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban7|replace({' ': ''})}}.png"> 
-                                <img class="champ-icon" alt="{{game.ban8}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban8|replace({' ': ''})}}.png"> 
-                                <img class="champ-icon" alt="{{game.ban9}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban9|replace({' ': ''})}}.png"> 
-                                <img class="champ-icon" alt="{{game.ban10}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban10|replace({' ': ''})}}.png">
+                                <img class="champ-icon" alt="{{game.ban6}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban6}}.png"> 
+                                <img class="champ-icon" alt="{{game.ban7}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban7}}.png"> 
+                                <img class="champ-icon" alt="{{game.ban8}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban8}}.png"> 
+                                <img class="champ-icon" alt="{{game.ban9}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban9}}.png"> 
+                                <img class="champ-icon" alt="{{game.ban10}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban10}}.png">
                             </div>
-                            <div>
-                                (Gold) {{game.getRedtotalgold}}    (Kills) 21  (Towers) {{ game.getRedtowers }}  (Dragons) {{game.getReddragons }} (Barons) {{ game.getRedbarons }}
+                            <div class="fw-bold">
+                                <span class="me-3">
+                                    <img style="width:25px; height:20px;" src="../../Images/Gold.png">
+                                    {{game.getRedtotalgold}}
+                                </span>
+                                <span class="me-3">
+                                    <img class="role-icon" src="../../Images/Gold.png">
+                                    22
+                                </span>
+                                <span class="me-3">
+                                    <img class="role-icon" src="../../Images/Red_Turret_icon.png">
+                                    {{ game.getRedtowers }}
+                                </span>
+                                <span class="me-3">
+                                    <img style="width:25px; height:25px;" src="../../Images/Dragon_icon_(Red).png">
+                                    {{game.getReddragons }}
+                                </span>
+                                <span class="me-3">
+                                    <img style="width:25px; height:25px;" src="../../Images/Baron_Nashor_icon_(Red).png">
+                                    {{ game.getRedbarons }}
+                                </span>
                             </div>
                         </div>
                     </div>

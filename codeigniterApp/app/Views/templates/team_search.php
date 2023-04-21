@@ -8,19 +8,19 @@
                     <div class="col-8">
                         <div class="mt-1">
                             Picks:
-                            <img class="champ-icon" alt="<?= esc($game['pick1']) ?>" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/<?= str_replace(" ", "", esc($game['pick1'])); ?>.png"> 
-                            <img class="champ-icon" alt="<?= esc($game['pick2']) ?>" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/<?= str_replace(" ", "", esc($game['pick2'])); ?>.png"> 
-                            <img class="champ-icon" alt="<?= esc($game['pick3']) ?>" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/<?= str_replace(" ", "", esc($game['pick3'])); ?>.png"> 
-                            <img class="champ-icon" alt="<?= esc($game['pick4']) ?>" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/<?= str_replace(" ", "", esc($game['pick4'])); ?>.png"> 
-                            <img class="champ-icon" alt="<?= esc($game['pick5']) ?>" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/<?= str_replace(" ", "", esc($game['pick5'])); ?>.png">
+                            <img class="champ-icon" alt="<?= esc($game['pick1']) ?>" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/<?= str_replace(" ", "", esc($game['pick1'])); ?>.png"> 
+                            <img class="champ-icon" alt="<?= esc($game['pick2']) ?>" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/<?= str_replace(" ", "", esc($game['pick2'])); ?>.png"> 
+                            <img class="champ-icon" alt="<?= esc($game['pick3']) ?>" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/<?= str_replace(" ", "", esc($game['pick3'])); ?>.png"> 
+                            <img class="champ-icon" alt="<?= esc($game['pick4']) ?>" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/<?= str_replace(" ", "", esc($game['pick4'])); ?>.png"> 
+                            <img class="champ-icon" alt="<?= esc($game['pick5']) ?>" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/<?= str_replace(" ", "", esc($game['pick5'])); ?>.png">
                         </div>
                         <div class="mt-1">
                             Bans:
-                            <img class="champ-icon" alt="<?= esc($game['ban1']) ?>" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/<?= str_replace(" ", "", esc($game['ban1'])); ?>.png"> 
-                            <img class="champ-icon" alt="<?= esc($game['ban2']) ?>" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/<?= str_replace(" ", "", esc($game['ban2'])); ?>.png"> 
-                            <img class="champ-icon" alt="<?= esc($game['ban3']) ?>" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/<?= str_replace(" ", "", esc($game['ban3'])); ?>.png"> 
-                            <img class="champ-icon" alt="<?= esc($game['ban4']) ?>" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/<?= str_replace(" ", "", esc($game['ban4'])); ?>.png"> 
-                            <img class="champ-icon" alt="<?= esc($game['ban5']) ?>" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/<?= str_replace(" ", "", esc($game['ban5'])); ?>.png">
+                            <img class="champ-icon" alt="<?= esc($game['ban1']) ?>" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/<?= str_replace(" ", "", esc($game['ban1'])); ?>.png"> 
+                            <img class="champ-icon" alt="<?= esc($game['ban2']) ?>" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/<?= str_replace(" ", "", esc($game['ban2'])); ?>.png"> 
+                            <img class="champ-icon" alt="<?= esc($game['ban3']) ?>" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/<?= str_replace(" ", "", esc($game['ban3'])); ?>.png"> 
+                            <img class="champ-icon" alt="<?= esc($game['ban4']) ?>" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/<?= str_replace(" ", "", esc($game['ban4'])); ?>.png"> 
+                            <img class="champ-icon" alt="<?= esc($game['ban5']) ?>" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/<?= str_replace(" ", "", esc($game['ban5'])); ?>.png">
                         </div>
                         <div>
                             (Gold) <?= esc($game['bluetotalgold']) ?>    (Kills) 21  (Towers) <?= esc($game['bluetowers']) ?>  (Dragons) <?= esc($game['bluedragons']) ?> (Barons) <?= esc($game['bluebarons']) ?>
@@ -56,19 +56,19 @@
                     <div class="col ">
                         <div class="mt-1">
                             Picks:
-                            <img class="champ-icon" alt="<?= esc($game['pick6']) ?>" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/<?= str_replace(" ", "", esc($game['pick6'])); ?>.png"> 
-                            <img class="champ-icon" alt="<?= esc($game['pick7']) ?>" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/<?= str_replace(" ", "", esc($game['pick7'])); ?>.png"> 
-                            <img class="champ-icon" alt="<?= esc($game['pick8']) ?>" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/<?= str_replace(" ", "", esc($game['pick8'])); ?>.png"> 
-                            <img class="champ-icon" alt="<?= esc($game['pick9']) ?>" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/<?= str_replace(" ", "", esc($game['pick9'])); ?>.png"> 
-                            <img class="champ-icon" alt="<?= esc($game['pick10']) ?>" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/<?= str_replace(" ", "", esc($game['pick10'])); ?>.png">
+                            <img class="champ-icon" alt="<?= esc($game['pick6']) ?>" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/<?= str_replace(" ", "", esc($game['pick6'])); ?>.png"> 
+                            <img class="champ-icon" alt="<?= esc($game['pick7']) ?>" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/<?= str_replace(" ", "", esc($game['pick7'])); ?>.png"> 
+                            <img class="champ-icon" alt="<?= esc($game['pick8']) ?>" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/<?= str_replace(" ", "", esc($game['pick8'])); ?>.png"> 
+                            <img class="champ-icon" alt="<?= esc($game['pick9']) ?>" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/<?= str_replace(" ", "", esc($game['pick9'])); ?>.png"> 
+                            <img class="champ-icon" alt="<?= esc($game['pick10']) ?>" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/<?= str_replace(" ", "", esc($game['pick10'])); ?>.png">
                         </div>
                         <div class="mt-1">
                             Bans:
-                            <img class="champ-icon" alt="<?= esc($game['ban6']) ?>" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/<?= str_replace(" ", "", esc($game['ban6'])); ?>.png"> 
-                            <img class="champ-icon" alt="<?= esc($game['ban7']) ?>" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/<?= str_replace(" ", "", esc($game['ban7'])); ?>.png"> 
-                            <img class="champ-icon" alt="<?= esc($game['ban8']) ?>" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/<?= str_replace(" ", "", esc($game['ban8'])); ?>.png"> 
-                            <img class="champ-icon" alt="<?= esc($game['ban9']) ?>" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/<?= str_replace(" ", "", esc($game['ban9'])); ?>.png"> 
-                            <img class="champ-icon" alt="<?= esc($game['ban10']) ?>" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/<?= str_replace(" ", "", esc($game['ban10'])); ?>.png">
+                            <img class="champ-icon" alt="<?= esc($game['ban6']) ?>" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/<?= str_replace(" ", "", esc($game['ban6'])); ?>.png"> 
+                            <img class="champ-icon" alt="<?= esc($game['ban7']) ?>" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/<?= str_replace(" ", "", esc($game['ban7'])); ?>.png"> 
+                            <img class="champ-icon" alt="<?= esc($game['ban8']) ?>" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/<?= str_replace(" ", "", esc($game['ban8'])); ?>.png"> 
+                            <img class="champ-icon" alt="<?= esc($game['ban9']) ?>" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/<?= str_replace(" ", "", esc($game['ban9'])); ?>.png"> 
+                            <img class="champ-icon" alt="<?= esc($game['ban10']) ?>" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/<?= str_replace(" ", "", esc($game['ban10'])); ?>.png">
                         </div>
                         <div>
                             (Gold) <?= esc($game['redtotalgold']) ?>    (Kills) 21  (Towers) <?= esc($game['redtowers']) ?>  (Dragons) <?= esc($game['reddragons']) ?> (Barons) <?= esc($game['redbarons']) ?>
