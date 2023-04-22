@@ -2,26 +2,26 @@
 
 namespace App\Repository;
 
-use App\Entity\Game;
+use App\Entity\Player;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Game>
+ * @extends ServiceEntityRepository<Player>
  *
- * @method Game|null find($id, $lockMode = null, $lockVersion = null)
- * @method Game|null findOneBy(array $criteria, array $orderBy = null)
- * @method Game[]    findAll()
- * @method Game[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Player|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Player|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Player[]    findAll()
+ * @method Player[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class GameRepository extends ServiceEntityRepository
+class PlayerRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Game::class);
+        parent::__construct($registry, Player::class);
     }
 
-    public function add(Game $entity, bool $flush = false): void
+    public function add(Player $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -30,7 +30,7 @@ class GameRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(Game $entity, bool $flush = false): void
+    public function remove(Player $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 
@@ -44,10 +44,9 @@ class GameRepository extends ServiceEntityRepository
         $entityManager = $this->getEntityManager();
 
         $query = $entityManager->createQuery(
-            'SELECT g
-            FROM App\Entity\Game g
-            WHERE g.blueteam = :name
-            OR g.redteam = :name'
+            'SELECT p
+            FROM App\Entity\Player p
+            WHERE p.playername = :name'
         )->setParameter('name', $name);
 
         return $query->getResult();

@@ -3,13 +3,13 @@
         <!--playername, position, champion, kills, deaths, assists, damagetochampions, dpm, damageshare, wards placed, wpm, totalcs, cspm, totalgold-->
         <div class="row align-items-start border border-warning">
             <div class="col bg-dark text-white">
-                <div class="row" style="height:100px;">
+                <div class="row mt-4" style="height:100px;">
                     <div class="col-2 ms-4">
-                        <div class="row text-center">
+                        <div class="row text-center fw-bold">
                             <?= esc($player['playername']) ?>
                         </div>
                         <div class="row">
-                            <?= esc($player['position']) ?>
+                        <img class="champ-icon-player mt-2" alt="<?= esc($player['position']) ?>" src="../../Images/<?= esc($player['position']) ?>_icon.png">
                         </div>
                     </div>
                     <div class="col-2">
