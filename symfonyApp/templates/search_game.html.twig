@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>search team</title>
+    <!-- Bootstrap -->
+    {% block stylesheets %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    {% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <style>
+        html, body {
+            height: 100vh;
+        }
+        body {
+            background-color: #f5f4fa;
+        }
+        .cbtn {
+            width: 200px;
+            height: 110px;
+            border-radius: 10px;
+        }
+        p {
+            font-family: 'Franklin Gothic Medium';
+            font-size: 1.3rem;
+        }
+        h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+        .champ-icon{
+            width: 30px;
+            height: 30px;
+            margin-right: 5px;
+        }
+        .role-icon{
+            width: 30px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body id="body">
+    <header class="p-3 bg-dark text-white">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="#" class="nav-link px-2 text-white" id="homebtn">Home</a></li>
+                    <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
+                    <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
+                    <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+                </ul>
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+                    <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+                </form>
+                <div class="text-end">
+                    <button type="button" class="btn btn-outline-light me-2">Login</button>
+                    <button type="button" class="btn btn-warning">Sign-up</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col mt-5"> 
+                <form method="GET" action="{{ path('search') }}">
+                    <div class="input-group mx-auto">
+                        <div class="form-outline ms-auto">
+                            <input type="input" class="form-control" placeholder="Search" name="name" id="form1"/>
+                            <div class="mt-2">
+                                <input type="radio" class="ms-5" name="option" id="checkTeam" value="Team"/>
+                                <label for="checkTeam">Team</label>
+                                <input type="radio" class="ms-4" name="option" id="checkPlayer" value="Player"/>
+                                <label for="checkPlayer">Player</label>
+                            </div>
+                            <div class="mt-2">
+                                <input type="checkbox" class="ms-5" name="countTime" id="countTime" value="true" checked/>
+                                <label for="countTime">Measure time</label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-dark me-auto" id="searchBtn" style="height:50%;">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        {% for game in games %}
+            <!--MATCH START-->
+            <div class="row align-items-start border border-dark">
+                <div class="col bg-primary">
+                    <div class="row" style="height:100px;">
+                        <div class="col-1"></div>
+                        <div class="col-8">
+                            <div class="mt-1">
+                                <img class="role-icon" alt="top" src="../../Images/Top_icon.png">
+                                <img class="champ-icon" alt="{{ game.pick1 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick1}}.png"> 
+                                <img class="role-icon" alt="jungle" src="../../Images/Jungle_icon.png">
+                                <img class="champ-icon" alt="{{ game.pick2 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick2}}.png"> 
+                                <img class="role-icon" alt="mid" src="../../Images/Middle_icon.png">
+                                <img class="champ-icon" alt="{{ game.pick3 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick3}}.png"> 
+                                <img class="role-icon" alt="bot" src="../../Images/Bot_icon.png">
+                                <img class="champ-icon" alt="{{ game.pick4 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick4}}.png"> 
+                                <img class="role-icon" alt="support" src="../../Images/Support_icon.png">
+                                <img class="champ-icon" alt="{{ game.pick5 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick5}}.png">
+                            </div>
+                            <div class="mt-1 ms-5 fw-bold">
+                                Bans:
+                                <img class="champ-icon" alt="{{game.ban1}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban1}}.png"> 
+                                <img class="champ-icon" alt="{{game.ban2}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban2}}.png"> 
+                                <img class="champ-icon" alt="{{game.ban3}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban3}}.png"> 
+                                <img class="champ-icon" alt="{{game.ban4}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban4}}.png"> 
+                                <img class="champ-icon" alt="{{game.ban5}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban5}}.png">
+                            </div>
+                            <div class="fw-bold">
+                                <span class="me-3">
+                                    <img style="width:25px; height:20px;" src="../../Images/Gold.png">
+                                    {{game.getBluetotalgold}}
+                                </span>
+                                <span class="me-3">
+                                    <img class="role-icon" src="../../Images/Kills_blue.png">
+                                    {{game.getBluekills}}
+                                </span>
+                                <span class="me-3">
+                                    <img class="role-icon" src="../../Images/Blue_Turret_icon.png">
+                                    {{ game.getBluetowers }}
+                                </span>
+                                <span class="me-3">
+                                    <img style="width:25px; height:25px;" src="../../Images/Dragon_icon_(Blue).png">
+                                    {{game.getBluedragons }}
+                                </span>
+                                <span class="me-3">
+                                    <img style="width:25px; height:25px;" src="../../Images/Baron_Nashor_icon_(Blue).png">
+                                    {{ game.getBluebarons }}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-2 text-end fw-bold">
+                        {{game.blueteam}} <br>
+                        {% if game.result == true %}
+                            W
+                        {% else %}
+                            L
+                        {% endif %}    
+                        </div>
+                    </div>
+                </div>
+                <div class="col-1 bg-dark" style="height:100px;">
+                    <div class="col text-center mt-1 text-white">
+                        Game Time <br>
+                        {% set time = game.gamelength|split('', 2) %}
+                        {{time[0] ~ ':' ~ time[1]}}
+                    </div>
+                </div>
+                <div class="col bg-danger">
+                    <div class="row" style="height:100px;">
+                        <div class="col-1"></div>
+                        <div class="col-2 text-start fw-bold">
+                        {{game.redteam}} <br>
+                        {% if game.result == false %}
+                            W
+                        {% else %}
+                            L
+                        {% endif %}
+                        </div>
+                        <div class="col ">
+                            <div class="mt-1">
+                                <img class="role-icon" alt="top" src="../../Images/Top_icon.png">
+                                <img class="champ-icon" alt="{{ game.pick6 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick6}}.png"> 
+                                <img class="role-icon" alt="top" src="../../Images/Jungle_icon.png">
+                                <img class="champ-icon" alt="{{ game.pick7 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick7}}.png"> 
+                                <img class="role-icon" alt="top" src="../../Images/Middle_icon.png">
+                                <img class="champ-icon" alt="{{ game.pick8 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick8}}.png"> 
+                                <img class="role-icon" alt="top" src="../../Images/Bot.png">
+                                <img class="champ-icon" alt="{{ game.pick9 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick9}}.png"> 
+                                <img class="role-icon" alt="top" src="../../Images/Support_icon.png">
+                                <img class="champ-icon" alt="{{ game.pick10 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick10}}.png">
+                            </div>
+                            <div class="mt-1 ms-4 fw-bold">
+                                Bans:
+                                <img class="champ-icon" alt="{{game.ban6}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban6}}.png"> 
+                                <img class="champ-icon" alt="{{game.ban7}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban7}}.png"> 
+                                <img class="champ-icon" alt="{{game.ban8}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban8}}.png"> 
+                                <img class="champ-icon" alt="{{game.ban9}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban9}}.png"> 
+                                <img class="champ-icon" alt="{{game.ban10}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban10}}.png">
+                            </div>
+                            <div class="fw-bold">
+                                <span class="me-3">
+                                    <img style="width:25px; height:20px;" src="../../Images/Gold.png">
+                                    {{game.getRedtotalgold}}
+                                </span>
+                                <span class="me-3">
+                                    <img class="role-icon" src="../../Images/Kills_red.png">
+                                    {{ game.getRedkills }}
+                                </span>
+                                <span class="me-3">
+                                    <img class="role-icon" src="../../Images/Red_Turret_icon.png">
+                                    {{ game.getRedtowers }}
+                                </span>
+                                <span class="me-3">
+                                    <img style="width:25px; height:25px;" src="../../Images/Dragon_icon_(Red).png">
+                                    {{game.getReddragons }}
+                                </span>
+                                <span class="me-3">
+                                    <img style="width:25px; height:25px;" src="../../Images/Baron_Nashor_icon_(Red).png">
+                                    {{ game.getRedbarons }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+            <!--MATCH END-->
+        {% endfor %}
+    </div>
+    <!--Footer-->
+    <div class="container">
+        <footer class="py-3 my-4">
+            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item" id="homebtn2"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+            </ul>
+            <p class="text-center text-muted">&copy; 2021 Company, Inc</p>
+        </footer>
+    </div>
+</body>
+</html>

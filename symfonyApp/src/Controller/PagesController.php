@@ -17,8 +17,10 @@ class PagesController extends AbstractController {
         $view = '';
         if ("Team" == $request->query->get('option')) {
             $view = 'search_team.html.twig';
-        } else {
+        } else if ("Player" == $request->query->get('option')) {
             $view = 'search_player.html.twig';
+        } else {
+            $view = 'search_game.html.twig';
         }
         return $this->render($view, ['games' => $formService->search($request)]);
     }

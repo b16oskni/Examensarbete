@@ -24,10 +24,10 @@ class Game
     #[ORM\Column(type: 'string', length: 25, nullable: true)]
     private $split;
 
-    #[ORM\Column(type: 'string', length: 4, nullable: true)]
+    #[ORM\Column(type: 'boolean', nullable: true)]
     private $playoffs;
 
-    #[ORM\Column(type: 'string', length: 20, nullable: true)]
+    #[ORM\Column(type: 'datetime', nullable: true)]
     private $date;
 
     #[ORM\Column(type: 'integer', nullable: true)]
@@ -36,8 +36,11 @@ class Game
     #[ORM\Column(type: 'string', length: 5, nullable: true)]
     private $patch;
 
-    #[ORM\Column(type: 'string', length: 20, nullable: true)]
+    #[ORM\Column(type: 'integer', length: 20, nullable: true)]
     private $gamelength;
+
+    #[ORM\Column(type: 'boolean', length: 20, nullable: true)]
+    private $result;
 
     #[ORM\Column(type: 'string', length: 50, nullable: true)]
     private $pick1;
@@ -99,44 +102,47 @@ class Game
     #[ORM\Column(type: 'string', length: 50, nullable: true)]
     private $ban10;
 
-    #[ORM\Column(type: 'string', length: 3, nullable: true)]
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private $bluekills;
+
+    #[ORM\Column(type: 'integer', nullable: true)]
     private $bluedragons;
 
-    #[ORM\Column(type: 'string', length: 3, nullable: true)]
+    #[ORM\Column(type: 'integer', nullable: true)]
     private $blueheralds;
 
-    #[ORM\Column(type: 'string', length: 3, nullable: true)]
+    #[ORM\Column(type: 'integer', nullable: true)]
     private $bluebarons;
 
-    #[ORM\Column(type: 'string', length: 3, nullable: true)]
+    #[ORM\Column(type: 'integer', nullable: true)]
     private $bluetowers;
 
-    #[ORM\Column(type: 'string', length: 3, nullable: true)]
+    #[ORM\Column(type: 'integer', nullable: true)]
     private $blueinhibitors;
 
-    #[ORM\Column(type: 'string', length: 15, nullable: true)]
+    #[ORM\Column(type: 'integer',  nullable: true)]
     private $bluetotalgold;
 
-    #[ORM\Column(type: 'string', length: 3, nullable: true)]
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private $redkills;
+
+    #[ORM\Column(type: 'integer',  nullable: true)]
     private $reddragons;
 
-    #[ORM\Column(type: 'string', length: 3, nullable: true)]
+    #[ORM\Column(type: 'integer', nullable: true)]
     private $redheralds;
 
-    #[ORM\Column(type: 'string', length: 3, nullable: true)]
+    #[ORM\Column(type: 'integer', nullable: true)]
     private $redbarons;
 
-    #[ORM\Column(type: 'string', length: 3, nullable: true)]
+    #[ORM\Column(type: 'integer', nullable: true)]
     private $redtowers;
 
-    #[ORM\Column(type: 'string', length: 3, nullable: true)]
+    #[ORM\Column(type: 'integer', nullable: true)]
     private $redinhibitors;
 
-    #[ORM\Column(type: 'string', length: 15, nullable: true)]
+    #[ORM\Column(type: 'integer', nullable: true)]
     private $redtotalgold;
-
-    #[ORM\Column(type: 'string', length: 10, nullable: true)]
-    private $gameresult;
 
     public function getId(): ?int
     {
@@ -203,12 +209,12 @@ class Game
         return $this;
     }
 
-    public function getPlayoffs(): ?string
+    public function getPlayoffs(): ?int
     {
         return $this->playoffs;
     }
 
-    public function setPlayoffs(?string $playoffs): self
+    public function setPlayoffs(?int $playoffs): self
     {
         $this->playoffs = $playoffs;
 
@@ -251,26 +257,26 @@ class Game
         return $this;
     }
 
-    public function getGamelength(): ?string
+    public function getGamelength(): ?int
     {
         return $this->gamelength;
     }
 
-    public function setGamelength(?string $gamelength): self
+    public function setGamelength(?int $gamelength): self
     {
         $this->gamelength = $gamelength;
 
         return $this;
     }
 
-    public function getGameresult(): ?string
+    public function getResult(): ?bool
     {
-        return $this->gameresult;
+        return $this->result;
     }
 
-    public function setGameresult(?string $gameresult): self
+    public function setResult(?bool $result): self
     {
-        $this->gameresult = $gameresult;
+        $this->result = $result;
 
         return $this;
     }
@@ -515,144 +521,168 @@ class Game
         return $this;
     }
 
-    public function getBluedragons(): ?string
+    public function getBluekills(): ?int
+    {
+        return $this->bluekills;
+    }
+
+    public function setBluekills(?int $bluekills): self
+    {
+        $this->bluekills = $bluekills;
+
+        return $this;
+    }
+
+    public function getBluedragons(): ?int
     {
         return $this->bluedragons;
     }
 
-    public function setBluedragons(?string $bluedragons): self
+    public function setBluedragons(?int $bluedragons): self
     {
         $this->bluedragons = $bluedragons;
 
         return $this;
     }
 
-    public function getBlueheralds(): ?string
+    public function getBlueheralds(): ?int
     {
         return $this->blueheralds;
     }
 
-    public function setBlueheralds(?string $blueheralds): self
+    public function setBlueheralds(?int $blueheralds): self
     {
         $this->blueheralds = $blueheralds;
 
         return $this;
     }
 
-    public function getBluebarons(): ?string
+    public function getBluebarons(): ?int
     {
         return $this->bluebarons;
     }
 
-    public function setBluebarons(?string $bluebarons): self
+    public function setBluebarons(?int $bluebarons): self
     {
         $this->bluebarons = $bluebarons;
 
         return $this;
     }
 
-    public function getBluetowers(): ?string
+    public function getBluetowers(): ?int
     {
         return $this->bluetowers;
     }
 
-    public function setBluetowers(?string $bluetowers): self
+    public function setBluetowers(?int $bluetowers): self
     {
         $this->bluetowers = $bluetowers;
 
         return $this;
     }
 
-    public function getBlueinhibitors(): ?string
+    public function getBlueinhibitors(): ?int
     {
         return $this->blueinhibitors;
     }
 
-    public function setBlueinhibitors(?string $blueinhibitors): self
+    public function setBlueinhibitors(?int $blueinhibitors): self
     {
         $this->blueinhibitors = $blueinhibitors;
 
         return $this;
     }
 
-    public function getBluetotalgold(): ?string
+    public function getBluetotalgold(): ?int
     {
         return $this->bluetotalgold;
     }
 
-    public function setBluetotalgold(?string $bluetotalgold): self
+    public function setBluetotalgold(?int $bluetotalgold): self
     {
         $this->bluetotalgold = $bluetotalgold;
 
         return $this;
     }
 
-    public function getReddragons(): ?string
+    public function getRedkills(): ?int
+    {
+        return $this->redkills;
+    }
+
+    public function setRedkills(?int $redkills): self
+    {
+        $this->redkills = $redkills;
+
+        return $this;
+    }
+
+    public function getReddragons(): ?int
     {
         return $this->reddragons;
     }
 
-    public function setReddragons(?string $reddragons): self
+    public function setReddragons(?int $reddragons): self
     {
         $this->reddragons = $reddragons;
 
         return $this;
     }
 
-    public function getRedheralds(): ?string
+    public function getRedheralds(): ?int
     {
         return $this->redheralds;
     }
 
-    public function setRedheralds(?string $redheralds): self
+    public function setRedheralds(?int $redheralds): self
     {
         $this->redheralds = $redheralds;
 
         return $this;
     }
 
-    public function getRedbarons(): ?string
+    public function getRedbarons(): ?int
     {
         return $this->redbarons;
     }
 
-    public function setRedbarons(?string $redbarons): self
+    public function setRedbarons(?int $redbarons): self
     {
         $this->redbarons = $redbarons;
 
         return $this;
     }
 
-    public function getRedtowers(): ?string
+    public function getRedtowers(): ?int
     {
         return $this->redtowers;
     }
 
-    public function setRedtowers(?string $redtowers): self
+    public function setRedtowers(?int $redtowers): self
     {
         $this->redtowers = $redtowers;
 
         return $this;
     }
 
-    public function getRedinhibitors(): ?string
+    public function getRedinhibitors(): ?int
     {
         return $this->redinhibitors;
     }
 
-    public function setRedinhibitors(?string $redinhibitors): self
+    public function setRedinhibitors(?int $redinhibitors): self
     {
         $this->redinhibitors = $redinhibitors;
 
         return $this;
     }
 
-    public function getRedtotalgold(): ?string
+    public function getRedtotalgold(): ?int
     {
         return $this->redtotalgold;
     }
 
-    public function setRedtotalgold(?string $redtotalgold): self
+    public function setRedtotalgold(?int $redtotalgold): self
     {
         $this->redtotalgold = $redtotalgold;
 
