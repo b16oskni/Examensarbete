@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 use App\Models\Game_model;
+use App\Models\Team_model;
+use App\Models\Player_model;
 
 class Pages extends BaseController {
 
@@ -24,21 +26,21 @@ class Pages extends BaseController {
         if ($this->request->getMethod() === 'get') {
 
             if ($option == "") {
-                $startTime = microtime(true);
+                $startTime = floor(microtime(true) * 1000);
                 $data = ['games' => $game_model->get_games($name)->getResultArray()];
                 $this->countTime($name, $option, $startTime);
                 echo view('templates/header');
                 echo view('templates/game_search', $data);
                 echo view('templates/footer');
             }elseif ($option == 'Player') {
-                $startTime = microtime(true);
+                $startTime = floor(microtime(true) * 1000);
                 $data = ['players' => $player_model->get_players($name)->getResultArray()];
                 $this->countTime($name, $option, $startTime);
                 echo view('templates/header');
                 echo view('templates/player_search', $data);
                 echo view('templates/footer');
             } else {
-                $startTime = microtime(true);
+                $startTime = floor(microtime(true) * 1000);
                 $data = ['teams' => $team_model->get_teams($name)->getResultArray()];
                 $this->countTime($name, $option, $startTime);
                 echo view('templates/header');
@@ -57,7 +59,7 @@ class Pages extends BaseController {
 
     private function countTime(String $searchValue, $searchOption, float $startTime) {
         if ($this->countTime) {
-            $time = microtime(true) - $startTime;
+            $time = floor(microtime(true) * 1000) - $startTime;
             $option = $searchOption == '' ? 'Game' : $searchOption;
             $row = [$option, $searchValue, $time];
             $path = '../../Data/codeigniter-measurments.csv';

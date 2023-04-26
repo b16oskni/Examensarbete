@@ -5,8 +5,6 @@ namespace App\Models;
 use CodeIgniter\Model;
 
     class Game_model extends Model {
-
-
         protected $table = 'game';
 
         public function get_games($name = false) {

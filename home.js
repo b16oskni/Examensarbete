@@ -21,3 +21,36 @@ function setupEvents() {
     btnCI.addEventListener("click", redirect);
     btnSF.addEventListener("click", redirect);
 }
+
+if (localStorage.getItem('searchNames') == null) {
+    let option = 'Team';
+    let names = [];
+
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+        processData(this.responseText);
+    }
+    xhttp.open("GET", "Database/"+option+".csv");
+    xhttp.send();
+
+    function processData(allText) {
+        var allTextLines = allText.split(/\r\n|\n|[,]/);
+        console.log(allTextLines);
+        for (var i=1; i<allTextLines.length; i++) {
+            if (allTextLines != ",") {
+                names.push(allTextLines[i]);
+            }
+        }
+    }
+    if(localStorage.getItem("names") == null) {
+        setTimeout(()=> {
+            for (var i=0; i<names.length; i++) {
+                if (names[i] == "") {
+                    names.splice(i,1);
+                }
+            }
+            localStorage.setItem("names", JSON.stringify(names));
+         }
+         ,2000);
+    }
+}

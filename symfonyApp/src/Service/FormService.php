@@ -27,21 +27,21 @@ class FormService {
         }
         $data = [];
         if ($option == null) {
-            $startTime = microtime(true);
+            $startTime = floor(microtime(true) * 1000);
             $data = $this->gameRepository->findAllByName($name);
             $this->countTime($name, $option, $startTime);
             foreach ($data as $game) {
                 $this->sanitizeGame($game);
             }
         }else if ($option == 'Player') {
-            $startTime = microtime(true);
+            $startTime = floor(microtime(true) * 1000);
             $data = $this->playerRepository->findAllByName($name);
             $this->countTime($name, $option, $startTime);
             foreach ($data as $player) {
                 $this->sanitizePlayer($player);
             }
         } else {
-            $startTime = microtime(true);
+            $startTime = floor(microtime(true) * 1000);
             $data = $this->teamRepository->findAllByName($name);
             $this->countTime($name, $option, $startTime);
             foreach ($data as $team) {
@@ -53,7 +53,7 @@ class FormService {
 
     private function countTime(String $searchValue, String $searchOption, float $startTime) {
         if ($this->countTime) {
-            $time = microtime(true) - $startTime;
+            $time =  floor(microtime(true) * 1000) - $startTime;
             $row = [$searchOption, $searchValue, $time];
             $path = '../../Data/symfony-measurments.csv';
             $fp = fopen($path, 'a');

@@ -13,5 +13,6 @@
     </div>
     <!--Custom JS-->
     <script src="<?php echo base_url('welcome_message.js');?>"></script>
+    <script src="<?php echo base_url('SearchScript.js');?>"></script>
 </body>
 </html>

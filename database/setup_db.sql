@@ -193,7 +193,7 @@ CREATE TABLE app_db.player (
     playerid varchar(80),
     playername varchar(80),
     position varchar(12),
-    champion varchar(40),
+    champion varchar(50),
     kills INT,
     deaths INT,
     assists INT,
