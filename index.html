@@ -64,6 +64,55 @@
                 </p>
             </div>
         </div>
+        <div class="row">
+            <div class="row justify-content-center">
+                <div class="col-3 mt-4 text-center">
+                    <div>
+                        <label>Input seed:</label>
+                    </div>
+                    <input type="text" id="seedInput" placeholder="1337" class="text-center">
+                </div>
+                <div class="col-3 mt-4 text-center">
+                    <div>
+                        <label>Input amount of iterations:</label>
+                    </div>
+                    <input type="text" id="iterationsInput" placeholder="10" class="text-center">
+                </div>
+                <div class="col-3 mt-4 text-center">
+                    <div>
+                        <label>Input amount of search terms:</label>
+                    </div>
+                    <input type="text" id="amountInput" placeholder="10" class="text-center">
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col mt-4 text-center">
+                    <div>Pick type of search:</div>
+                    <input type="radio" class="ms-5" name="searchType" id="checkTeam" value="Team"/>
+                    <label for="checkTeam">Team</label>
+                    <input type="radio" class="ms-5" name="searchType" id="checkPlayer" value="Player"/>
+                    <label for="checkPlayer">Player</label>
+                    <input type="radio" class="ms-5" name="searchType" id="checkGame" value="Game"/>
+                    <label for="checkGame">Game</label>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col mt-4 text-center">
+                    <div>
+                        <label>Measure in both PHP and JS?</label>
+                    </div>
+                    <input type="checkbox" id="usePhp">
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-3 mt-4 text-center">
+                    <button type="button" class="btn btn-dark" id="btnTeam" value="Team">Randomise Team names</button>
+                </div>
+                <div class="col-3 mt-4 text-center">
+                    <button type="button" class="btn btn-dark" id="btnPlayer" value="Player">Randomise Player names</button>
+                </div>
+            </div>
+        </div>
         <div class="row mt-5">
             <div class="col mt-4 text-center">
                 <button type="button" class="btn btn-dark btn-lg cbtn" id="btnCi" value="ci">CodeIgniter 4</button>
@@ -88,5 +137,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <!--Custom JS-->
     <script src="home.js"></script>
+    <script src="https://rawcdn.githack.com/b16oskni/ContextFreeLib/8a07bf05daf7f9514b76f3bbef6cbe6a64caf527/js/randapp.js"></script>
 </body>
 </html>
