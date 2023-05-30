@@ -46,6 +46,9 @@
             margin-left: 5px;
             padding: 0px;
         }
+        .champ-text {
+            display: inline;
+        }
     </style>
 </head>
 <body id="body">
@@ -103,12 +106,12 @@
                                     {{ game.playername }}
                                 </div>
                                 <div class="row">
-                                <img class="champ-icon-player mt-2" alt="{{ game.position }}" src="../../Images/{{ game.position }}_icon.png">
+                                    <img class="champ-icon-player mt-2" alt="{{ game.position }}" src="../../Images/{{ game.position }}_icon.png">
                                 </div>
                             </div>
                             <div class="col-2">
-                                        <img class="champ-icon-player mt-2" alt="{{ game.champion }}" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/{{ game.champion }}.png"> 
-                                    </div>
+                                <div class="champ-text">{{ game.champion }}</div>
+                            </div>
                             <div class="col">
                                 <div class="row">
                                     <div class="col mt-2">

@@ -40,6 +40,9 @@
             width: 30px;
             height: 30px;
         }
+        .champ-text {
+            display: inline;
+        }
     </style>
 </head>
 <body id="body">
@@ -96,23 +99,23 @@
                         <div class="col-8">
                             <div class="mt-1">
                                 <img class="role-icon" alt="top" src="../../Images/Top_icon.png">
-                                <img class="champ-icon" alt="{{ game.pick1 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick1}}.png"> 
+                                <div class="champ-text">{{ game.pick1 }}</div>
                                 <img class="role-icon" alt="jungle" src="../../Images/Jungle_icon.png">
-                                <img class="champ-icon" alt="{{ game.pick2 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick2}}.png"> 
+                                <div class="champ-text">{{ game.pick2 }}</div>
                                 <img class="role-icon" alt="mid" src="../../Images/Middle_icon.png">
-                                <img class="champ-icon" alt="{{ game.pick3 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick3}}.png"> 
+                                <div class="champ-text">{{ game.pick3 }}</div>
                                 <img class="role-icon" alt="bot" src="../../Images/Bot_icon.png">
-                                <img class="champ-icon" alt="{{ game.pick4 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick4}}.png"> 
+                                <div class="champ-text">{{ game.pick4 }}</div>
                                 <img class="role-icon" alt="support" src="../../Images/Support_icon.png">
-                                <img class="champ-icon" alt="{{ game.pick5 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick5}}.png">
+                                <div class="champ-text">{{ game.pick5 }}</div>
                             </div>
                             <div class="mt-1 ms-5 fw-bold">
                                 Bans:
-                                <img class="champ-icon" alt="{{game.ban1}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban1}}.png"> 
-                                <img class="champ-icon" alt="{{game.ban2}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban2}}.png"> 
-                                <img class="champ-icon" alt="{{game.ban3}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban3}}.png"> 
-                                <img class="champ-icon" alt="{{game.ban4}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban4}}.png"> 
-                                <img class="champ-icon" alt="{{game.ban5}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban5}}.png">
+                                <div class="champ-text">{{ game.ban1 }}</div>
+                                <div class="champ-text">{{ game.ban2 }}</div>
+                                <div class="champ-text">{{ game.ban3 }}</div>
+                                <div class="champ-text">{{ game.ban4 }}</div>
+                                <div class="champ-text">{{ game.ban5 }}</div>
                             </div>
                             <div class="fw-bold">
                                 <span class="me-3">
@@ -168,23 +171,23 @@
                         <div class="col ">
                             <div class="mt-1">
                                 <img class="role-icon" alt="top" src="../../Images/Top_icon.png">
-                                <img class="champ-icon" alt="{{ game.pick6 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick6}}.png"> 
-                                <img class="role-icon" alt="top" src="../../Images/Jungle_icon.png">
-                                <img class="champ-icon" alt="{{ game.pick7 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick7}}.png"> 
-                                <img class="role-icon" alt="top" src="../../Images/Middle_icon.png">
-                                <img class="champ-icon" alt="{{ game.pick8 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick8}}.png"> 
-                                <img class="role-icon" alt="top" src="../../Images/Bot.png">
-                                <img class="champ-icon" alt="{{ game.pick9 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick9}}.png"> 
-                                <img class="role-icon" alt="top" src="../../Images/Support_icon.png">
-                                <img class="champ-icon" alt="{{ game.pick10 }}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.pick10}}.png">
+                                <div class="champ-text">{{ game.pick6 }}</div>
+                                <img class="role-icon" alt="jungle" src="../../Images/Jungle_icon.png">
+                                <div class="champ-text">{{ game.pick7 }}</div>
+                                <img class="role-icon" alt="mid" src="../../Images/Middle_icon.png">
+                                <div class="champ-text">{{ game.pick8 }}</div>
+                                <img class="role-icon" alt="bot" src="../../Images/Bot_icon.png">
+                                <div class="champ-text">{{ game.pick9 }}</div>
+                                <img class="role-icon" alt="support" src="../../Images/Support_icon.png">
+                                <div class="champ-text">{{ game.pick10 }}</div>
                             </div>
                             <div class="mt-1 ms-4 fw-bold">
                                 Bans:
-                                <img class="champ-icon" alt="{{game.ban6}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban6}}.png"> 
-                                <img class="champ-icon" alt="{{game.ban7}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban7}}.png"> 
-                                <img class="champ-icon" alt="{{game.ban8}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban8}}.png"> 
-                                <img class="champ-icon" alt="{{game.ban9}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban9}}.png"> 
-                                <img class="champ-icon" alt="{{game.ban10}}" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/{{ game.ban10}}.png">
+                                <div class="champ-text">{{ game.ban6 }}</div>
+                                <div class="champ-text">{{ game.ban7 }}</div>
+                                <div class="champ-text">{{ game.ban8 }}</div>
+                                <div class="champ-text">{{ game.ban9 }}</div>
+                                <div class="champ-text">{{ game.ban10 }}</div>
                             </div>
                             <div class="fw-bold">
                                 <span class="me-3">

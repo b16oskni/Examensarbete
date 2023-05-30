@@ -70,7 +70,7 @@
                             <label for="checkPlayer">Player</label>
                         </div>
                         <div class="mt-2">
-                            <input type="checkbox" class="ms-5" name="countTime" id="countTime" value="true" checked/>
+                            <input type="checkbox" class="ms-5" name="countTime" id="countTime" checked/>
                             <label for="countTime">Measure time</label>
                         </div>
                     </div>

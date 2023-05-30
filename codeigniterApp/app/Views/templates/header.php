@@ -43,6 +43,9 @@
             width: 30px;
             height: 30px;
         }
+        .champ-text {
+            display: inline;
+        }
     </style>
 </head>
 <body id="body">

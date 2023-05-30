@@ -24,24 +24,24 @@
                     <div class="col-4">
                         <div class="row">
                             <div class="mt-1">
-                                <img class="role-icon" alt="top" src="../../Images/Top_icon.png">
-                                <img class="champ-icon" alt="<?= esc($team['pick1']) ?>" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/<?= str_replace(" ", "", esc($team['pick1'])); ?>.png"> 
-                                <img class="role-icon" alt="jungle" src="../../Images/Jungle_icon.png">
-                                <img class="champ-icon" alt="<?= esc($team['pick2']) ?>" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/<?= str_replace(" ", "", esc($team['pick2'])); ?>.png"> 
-                                <img class="role-icon" alt="mid" src="../../Images/Middle_icon.png">
-                                <img class="champ-icon" alt="<?= esc($team['pick3']) ?>" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/<?= str_replace(" ", "", esc($team['pick3'])); ?>.png"> 
-                                <img class="role-icon" alt="bot" src="../../Images/Bot_icon.png">
-                                <img class="champ-icon" alt="<?= esc($team['pick4']) ?>" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/<?= str_replace(" ", "", esc($team['pick4'])); ?>.png"> 
-                                <img class="role-icon" alt="support" src="../../Images/Support_icon.png">
-                                <img class="champ-icon" alt="<?= esc($team['pick5']) ?>" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/<?= str_replace(" ", "", esc($team['pick5'])); ?>.png">
+                            <img class="role-icon" alt="top" src="../../Images/Top_icon.png">
+                            <div class="champ-text"><?= esc($team['pick1']) ?></div>
+                            <img class="role-icon" alt="jungle" src="../../Images/Jungle_icon.png">
+                            <div class="champ-text"><?= esc($team['pick2']) ?></div>
+                            <img class="role-icon" alt="mid" src="../../Images/Middle_icon.png">
+                            <div class="champ-text"><?= esc($team['pick3']) ?></div>
+                            <img class="role-icon" alt="bot" src="../../Images/Bot_icon.png">
+                            <div class="champ-text"><?= esc($team['pick4']) ?></div> 
+                            <img class="role-icon" alt="support" src="../../Images/Support_icon.png">
+                            <div class="champ-text"><?= esc($team['pick5']) ?></div>
                             </div>
                             <div class="mt-1 ms-5 fw-bold">
                                 Bans:
-                                <img class="champ-icon" alt="<?= esc($team['ban1']) ?>" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/<?= str_replace(" ", "", esc($team['ban1'])); ?>.png"> 
-                                <img class="champ-icon" alt="<?= esc($team['ban2']) ?>" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/<?= str_replace(" ", "", esc($team['ban2'])); ?>.png"> 
-                                <img class="champ-icon" alt="<?= esc($team['ban3']) ?>" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/<?= str_replace(" ", "", esc($team['ban3'])); ?>.png"> 
-                                <img class="champ-icon" alt="<?= esc($team['ban4']) ?>" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/<?= str_replace(" ", "", esc($team['ban4'])); ?>.png"> 
-                                <img class="champ-icon" alt="<?= esc($team['ban5']) ?>" src="http://ddragon.leagueoflegends.com/cdn/13.8.1/img/champion/<?= str_replace(" ", "", esc($team['ban5'])); ?>.png">
+                                <div class="champ-text"><?= esc($team['ban1']) ?></div>
+                                <div class="champ-text"><?= esc($team['ban2']) ?></div>
+                                <div class="champ-text"><?= esc($team['ban3']) ?></div>
+                                <div class="champ-text"><?= esc($team['ban4']) ?></div>
+                                <div class="champ-text"><?= esc($team['ban5']) ?></div>
                             </div>
                         </div>
                     </div>

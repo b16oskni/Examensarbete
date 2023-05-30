@@ -13,8 +13,8 @@
                         </div>
                     </div>
                     <div class="col-2">
-                                <img class="champ-icon-player mt-2" alt="<?= esc($player['champion']) ?>" src="http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/<?= str_replace(" ", "", esc($player['champion'])); ?>.png"> 
-                            </div>
+                        <div class="champ-text"><?= esc($player['champion']) ?></div>
+                    </div>
                     <div class="col">
                         <div class="row">
                             <div class="col mt-2">

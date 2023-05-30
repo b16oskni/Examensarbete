@@ -1,11 +1,11 @@
 window.addEventListener("load", () => {
-    var searchInput = document.getElementById("form1");
-    var searchTeam = document.getElementById("checkTeam");
-    var searchPlayer = document.getElementById("checkPlayer");
-    var phpMeasureCheck = document.getElementById("countTime");
+    const searchInput = document.getElementById("form1");
+    const searchTeam = document.getElementById("checkTeam");
+    const searchPlayer = document.getElementById("checkPlayer");
+    const phpMeasureCheck = document.getElementById("countTime");
 
     //set number of times we search for each name
-    var iterations = localStorage.getItem("iterations");
+    var iterations = Number(localStorage.getItem("iterations"));
 
     //which type to search for, valid option: Team, Player, Game
     var searchType = localStorage.getItem("searchType");
@@ -21,13 +21,13 @@ window.addEventListener("load", () => {
         localStorage.setItem("iterationsCounter", 0);
     }
     
-    var iterationCount = localStorage.getItem("iterationsCounter");
+    var iterationCount = Number(localStorage.getItem("iterationsCounter"));
 
     if(localStorage.getItem("currentSearchIndex") == null){
         localStorage.setItem("currentSearchIndex", 0);
     }
 
-    var currentSearchIndex = localStorage.getItem("currentSearchIndex");
+    var currentSearchIndex = Number(localStorage.getItem("currentSearchIndex"));
     
     var measurement = Date.now();
     if(currentSearchIndex == 0 && iterationCount == 0){
@@ -42,6 +42,7 @@ window.addEventListener("load", () => {
 
         localStorage.setItem("Oldval",measurement);
     }
+
     if(currentSearchIndex >= names.length){
         iterationCount++;
         localStorage.setItem("iterationsCounter", iterationCount);
@@ -50,7 +51,7 @@ window.addEventListener("load", () => {
 
     localStorage.setItem("theData",str);
 
-    if(iterationCount<iterations){
+    if(iterationCount < iterations){
     
         searchInput.value = names[currentSearchIndex];
 
@@ -70,15 +71,17 @@ window.addEventListener("load", () => {
             default:
                 break;
         }
-        if (!usePhpMeasure) {
-            phpMeasureCheck.dispatchEvent(clickEvent);
+
+        if (usePhpMeasure === "false") {
+            phpMeasureCheck.click();
         }
+
         currentSearchIndex++;
         localStorage.setItem("currentSearchIndex",currentSearchIndex);
 
         var btn = document.getElementById("searchBtn");
         btn.dispatchEvent(clickEvent);
-    }else if(iterationCount>=iterations){
+    }else if(iterationCount >= iterations){
         alert("Done!");
         var anchor = document.createElement("a");
         anchor.setAttribute("href", encodeURI(str));
